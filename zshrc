@@ -2,17 +2,17 @@
 bindkey -v
 export KEYTIMEOUT=1
 
-# set lang
-export LANG=ja_JP.UTF-8
-
 # path
-export PATH=/usr/local/bin:/Applications/phantomjs.app/Contents/MacOS:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # my aliases
-alias ls='/bin/ls -FG'
+alias ls='ls -FG'
 alias ll='ls -ltr'
 alias l='ls -ltr'
 alias la='ls -ltra'
+#alias sqlite3='/usr/local/bin/sqlite'
+alias titanium='/Users/achiku/Library/Application\ Support/Titanium/mobilesdk/osx/1.7.2/titanium.py'
+
 
 # ruby
 [ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
@@ -21,6 +21,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # for node.js nvm
 . $HOME/.nvm/nvm.sh
 
+# set lang
+export LANG=ja_JP.UTF-8
+
 # export Android path
 export ANDROID_HOME=/Applications/android-sdk
 
@@ -28,6 +31,7 @@ export ANDROID_HOME=/Applications/android-sdk
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # for python virtualenv
+# export PYTHONPATH=~/.local/lib/python2.7/site-packages:$PYTHONPATH
 v_env_wrapper=/usr/local/bin/virtualenvwrapper.sh
 if [ -r $v_env_wrapper ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -55,18 +59,19 @@ autoload colors
 colors
 autoload zed
 
-# prompt must be cool
 case ${UID} in
 0)
-  PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b  "
-  PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-  SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+  PROMPT="%{${fg[red]}%}%/#%{${reset_color}%}#  "
+  PROMPT2="%{${fg[red]}%}%_#%{${reset_color}%}# "
+  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}#} "
   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
     PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
   ;;
 *)
-  PROMPT="%{${fg[red]}%}(%m@%n:%~)%#${reset_color} "
-  PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
+  #PROMPT="%{${fg[red]}%}(%m@%n:%~)%#${reset_color} "
+  #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
+  PROMPT='%{$fg[red]%}(%m@%n:%~)$%{$reset_color%} '
+  PROMPT2="%{${fg[red]}%}%_%%%{$reset_color%} "
   SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
     PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
@@ -78,7 +83,6 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# for screen
 case "${TERM}" in
 kterm*|xterm)
     precmd() {
@@ -87,11 +91,13 @@ kterm*|xterm)
     ;;
 esac
 
+# for screen
 if [ "$TERM" = "screen" ]; then
     precmd(){
         screen -X title $(basename $(print -P "%~"))
     }
 fi
+
 
 # show git info
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"

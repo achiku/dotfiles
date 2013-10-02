@@ -3,6 +3,10 @@ term xterm-256color
 termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
 termcapinfo xterm* ti@:te@
 
+mousetrack on
+maptimeout 0
+defc1 off
+
 autodetach on
 bell_msg "^G"
 defkanji utf-8
