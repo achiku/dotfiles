@@ -8,7 +8,15 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set nowritebackup                                                               
+set nobackup                                                                    
+set noswapfile
+
+autocmd FileType text setlocal textwidth=0
+
 set hlsearch
+
+
 
 "" neobundle.vim
 " ----------------------------------------------------------------------------------------
@@ -53,17 +61,23 @@ NeoBundleCheck
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'scrooloose/syntastic'                                                
 
+
+"" synatastic
+let g:syntastic_check_on_open=1                                                 
+let g:syntastic_python_checkers=['flake8', 'pyflakes']
+let g:syntastic_python_checker_args='--ignore=E501'
 
 "" neocomplcache.vim
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup=0
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup=1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_smart_case=1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_min_syntax_length=3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
@@ -89,8 +103,17 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-"" dbext.vim
-let g:dbext_default_profile_dtgen = 'type=SQLITE:SQLITE_bin=/usr/local/bin/sqlite3:dbname=/Users/user/work/dtgen/application/db/database.db'
-let g:dbext_default_profile_sqlalc = 'type=SQLITE:SQLITE_bin=/usr/local/bin/sqlite3:dbname=/Users/user/work/sqlalchemy/db/sample.db'
-let g:dbext_default_history_file =  '/Users/user/.vim/bundle/dbext'
+"" qfixhowm
+" add runtimepath
+set runtimepath+=~/.vim/bundle/qfixapp
+
+" keymap
+let QFixHowm_Key = 'g'
+
+" " howm_dir is where we save howm files
+let howm_dir             = '~/Documents/howm/'
+let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+let QFixMRU_Filename     = '~/.qfixmru'
 
