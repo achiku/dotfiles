@@ -1,31 +1,9 @@
-
-colorscheme desert256
-syntax on
-
-set number
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set nowritebackup                                                               
-set nobackup                                                                    
-set noswapfile
-
-autocmd FileType text setlocal textwidth=0
-
-set hlsearch
-
-
-
-"" neobundle.vim
-" ----------------------------------------------------------------------------------------
-"   neobundle
-" ----------------------------------------------------------------------------------------
-set nocompatible               " Be iMproved
-
+" =============================
+" neobundle settings
+" =============================
 if has('vim_starting')
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set nocompatible               " Be iMproved
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -35,14 +13,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-                \ 'windows' : 'make -f make_mingw32.mak',
-                \ 'cygwin' : 'make -f make_cygwin.mak',
-                \ 'mac' : 'make -f make_mac.mak',
-                \ 'unix' : 'make -f make_unix.mak',
-        \ },
-\ }
+NeoBundle 'Shougo/vimproc'
+
+" =============================
+" plugins
+" =============================
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'vim-scripts/dbext.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'w0ng/vim-hybrid'
 
 filetype plugin indent on     " Required!
 
@@ -55,15 +35,29 @@ filetype plugin indent on     " Required!
 NeoBundleCheck
 
 
-" =============================
-" neobundle: github
-" =============================
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'vim-scripts/dbext.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'scrooloose/syntastic'                                                
+"=================================
+" vim settings
+"=================================
+syntax on
+set t_Co=256
+colorscheme desert256
+
+set number
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set nowritebackup                                                               
+set nobackup                                                                    
+set noswapfile
+
+set hlsearch
 
 
+"=================================
+" individual plugin settings
+"=================================
 "" synatastic
 let g:syntastic_check_on_open=1                                                 
 let g:syntastic_python_checkers=['flake8', 'pyflakes']
