@@ -22,7 +22,10 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'kien/ctrlp.vim'
 
 filetype plugin indent on     " Required!
 
@@ -48,20 +51,30 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set nowritebackup                                                               
-set nobackup                                                                    
+set nowritebackup
+set nobackup
 set noswapfile
 
 set hlsearch
 
+set wrap
+set textwidth=0
+
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <silent> <space># yyp<c-v>$r#
+nnoremap <silent> <space>= yyp<c-v>$r=
+nnoremap <silent> <space>- yyp<c-v>$r-
 
 "=================================
-" individual plugin settings
+" plugin settings
 "=================================
 "" synatastic
-let g:syntastic_check_on_open=1                                                 
-let g:syntastic_python_checkers=['flake8', 'pyflakes']
-let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['flake8']
 
 "" neocomplcache.vim
 " Disable AutoComplPop.
@@ -110,4 +123,12 @@ let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding    = 'utf-8'
 let howm_fileformat      = 'unix'
 let QFixMRU_Filename     = '~/.qfixmru'
+
+"" tagbar
+nmap <F9> :TagbarToggle<CR>
+
+"" nerdtree
+nmap <F8> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', 'node_modules$']
+
 
