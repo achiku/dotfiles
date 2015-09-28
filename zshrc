@@ -2,36 +2,50 @@
 bindkey -v
 export KEYTIMEOUT=1
 
-# path
-export PATH=/usr/local/bin:$PATH
+# set lang
+export LANG=ja_JP.UTF-8
 
-# my aliases
+# my commnad aliases
 alias ls='ls -FG'
-alias ll='ls -ltr'
+alias ll='ls -l'
 alias l='ls -ltr'
 alias la='ls -ltra'
-#alias sqlite3='/usr/local/bin/sqlite'
-alias titanium='/Users/achiku/Library/Application\ Support/Titanium/mobilesdk/osx/1.7.2/titanium.py'
 
+alias g='cd $(ghq list -p | peco)'
+alias gh='gh-open $(ghq list -p | peco)'
 
-# ruby
-[ -s ${HOME}/.rvm/scripts/rvm ] && source ${HOME}/.rvm/scripts/rvm
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# for custom aliases 
+if [[ -f ~/.myalias ]]; then
+    source ~/.myalias
+fi
+
+# For GCP
+export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
+export CLOUDSDK_COMPUTE_REGION=asia-east1
+
+# for completion
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# for ruby
+export PATH=$HOME/.rbenv/shims:$PATH
+eval "$(rbenv init -)"
 
 # for node.js nvm
 . $HOME/.nvm/nvm.sh
 
-# set lang
-export LANG=ja_JP.UTF-8
+# for golang
+export GOVERSION=1.4.2
+export GOPATH=$HOME/.go/$GOVERSION
+export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
+export PATH=$GOPATH/bin:$PATH
 
-# export Android path
-export ANDROID_HOME=/Applications/android-sdk
+# path for homebrew and pipsi (this must come to the very begining of PATH)
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
 
-# for pythonz
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+# for Java
+export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
 
-# for python virtualenv
-# export PYTHONPATH=~/.local/lib/python2.7/site-packages:$PYTHONPATH
+# for python virtualenv (manage python with homebrew)
 v_env_wrapper=/usr/local/bin/virtualenvwrapper.sh
 if [ -r $v_env_wrapper ]; then
     export WORKON_HOME=$HOME/.virtualenvs
@@ -39,6 +53,16 @@ if [ -r $v_env_wrapper ]; then
 fi
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export VIRTUALENV_USE_DISTRIBUTE=true
+
+# for postgresql
+export PGDATA=/usr/local/var/postgres
+
+# for docker
+. $HOME/.dockerrc
+
+
+# for custom tools
+export PATH=$HOME/bin:$PATH
 
 # zsh completion
 autoload -U compinit
@@ -68,13 +92,12 @@ case ${UID} in
     PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
   ;;
 *)
-  #PROMPT="%{${fg[red]}%}(%m@%n:%~)%#${reset_color} "
-  #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-  PROMPT='%{$fg[red]%}(%m@%n:%~)$%{$reset_color%} '
-  PROMPT2="%{${fg[red]}%}%_%%%{$reset_color%} "
-  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+  PROMPT='%{$fg[red]%}[%~]%{$reset_color%} %b$(git_super_status) 
+%{$fg[red]%}≫≫%{$reset_color%} '
+  PROMPT2='%{${fg[red]}%}%_%%%{$reset_color%} '
+  SPROMPT='%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '
   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
+    PROMPT='%{${fg[white]}%}${HOST%%.*} ${PROMPT}'
   ;;
 esac
 
@@ -83,33 +106,6 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-case "${TERM}" in
-kterm*|xterm)
-    precmd() {
-      echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
-
-# for screen
-if [ "$TERM" = "screen" ]; then
-    precmd(){
-        screen -X title $(basename $(print -P "%~"))
-    }
-fi
-
-
-# show git info
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-
+export GIT_PROMPT_EXECUTABLE="haskell"
+source ~/.zsh/git-prompt/zshrc.sh
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'

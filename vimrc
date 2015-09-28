@@ -20,17 +20,16 @@ NeoBundle 'Shougo/vimproc.vim'
 " =============================
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/lightline-hybrid.vim'
-NeoBundle 'vim-scripts/dbext.vim', "18.0"
+NeoBundle 'vim-scripts/dbext.vim', '18.0'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/Align'
+NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'aharisu/vim_goshrepl'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'autowitch/hive.vim'
 NeoBundle 'Shougo/neosnippet.vim'
@@ -42,7 +41,6 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'chase/vim-ansible-yaml'
@@ -50,13 +48,9 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'miyakogi/vim-virtualenv'
 NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'mxw/vim-jsx'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'kannokanno/previm'
 
 
 call neobundle#end()
@@ -76,8 +70,7 @@ NeoBundleCheck
 "=================================
 syntax on
 set t_Co=256
-set term=screen-256color
-colorscheme hybrid
+colorscheme jellybeans
 
 set nofoldenable
 set number
@@ -149,6 +142,7 @@ source ~/.vim/etc/lightline.vim
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
 let g:syntastic_coffee_checkers = ['coffeelint']
@@ -182,7 +176,7 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 " let g:ctrlp_by_filename = 1 " フルパスではなくファイル名のみで絞込み
 let g:ctrlp_jump_to_buffer = 2 " タブで開かれていた場合はそのタブに切り替える
 let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
-let g:ctrlp_mruf_max = 1000 " MRUの最大記録数
+let g:ctrlp_mruf_max = 10000 " MRUの最大記録数
 let g:ctrlp_highlight_match = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
 let g:ctrlp_open_new_file = 1 " 新規ファイル作成時にタブで開く
 let g:ctrlp_open_multi = '10t' " 複数ファイルを開く時にタブで最大10まで開く
@@ -197,11 +191,11 @@ let QFixHowm_Key = 'g'
 
 " " howm_dir is where we save howm files
 let howm_dir = '~/Documents/howm/achiku'
-" let QFixHowm_FileType = 'markdown'
 let QFixHowm_Title = '# '
 " let howm_dir = '~/Dropbox/share-system/akira.chiku/'
 let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
 let howm_fileencoding = 'utf-8'
+let QFixHowm_FileType = 'markdown'
 let howm_fileformat = 'unix'
 let QFixMRU_Filename = '~/Documents/howm/qfixmru'
 let QFixMRU_EntryMax = 300
@@ -213,7 +207,6 @@ let QFixHowm_Template = [
   \]
 let QFixHowm_SaveTime = 1
 let QFixHowm_Autoformat = 0
-" カレンダー表示の日本語化
 let calendar_jp = 1
 
 
@@ -228,7 +221,7 @@ let NERDTreeIgnore = ['\.pyc$', 'node_modules$']
 vmap <CR> <Plug>(gosh_repl_send_block)
 
 """ dbext.vim
-let g:dbext_default_history_file =  '/Users/achiku/.vim/bundle/dbext'
+let g:dbext_default_history_file =  '~/.vim/bundle/dbext'
 source ~/.vim/etc/dbext.vim
 
 
@@ -297,11 +290,8 @@ command! -nargs=0 KobitoClose call system("osascript -e 'tell application \"Kobi
 command! -nargs=0 KobitoFocus call system("osascript -e 'tell application \"Kobito\" to activate'")
 
 
-""" vim-markdown
-let g:vim_markdown_folding_disabled=1
-
-
 """ neocomplete
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -311,37 +301,17 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  " return neocomplete#close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -351,15 +321,33 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+
 """ jedi-vim
 " jediにvimの設定を任せると'completeopt+=preview'するので
 " 自動設定機能をOFFにし手動で設定を行う
+autocmd FileType python setlocal completeopt-=preview
 let g:jedi#popup_on_dot = 0
 let g:jedi#auto_vim_configuration = 0
 " 補完の最初の項目が選択された状態だと使いにくいためオフにする
 let g:jedi#popup_select_first = 0
 " quickrunと被るため大文字に変更
 let g:jedi#rename_command = '<Leader>R'
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+" let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
+
 
 
 """ quickrun
@@ -370,17 +358,12 @@ let g:quickrun_config = {
 \       "runner" : "vimproc",
 \       "runner/vimproc/updatetime" : 60,
 \   },
+\   'objc': {
+\     'command': 'cc',
+\     'exec': ['%c %s -o %s:p:r -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+\     'tempfile': '{tempname()}.m',
+\   }
 \}
-
-
-""" vimshell
-let g:vimshell_interactive_update_time = 10
-nmap <silent>vs <Esc>:VimShell<CR>
-
-
-""" vim-jsx
-let g:jsx_ext_required = 0
-let g:jsx_pragma_required = 1
 
 
 """ go-vim
@@ -402,3 +385,12 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 """ isort-vim
 let g:vim_isort_map = '<C-i>'
+
+
+""" previm
+let g:previm_open_cmd = 'open -a Google\ Chrome '
+let g:previm_custom_css_path = '/Users/achiku/.vim/etc/previm.css'
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
