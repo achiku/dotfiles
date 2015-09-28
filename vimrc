@@ -339,6 +339,8 @@ let g:jedi#popup_select_first = 0
 let g:jedi#rename_command = '<Leader>R'
 
 autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType python let g:neocomplete#disable_auto_complete = 0
+ 
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 
