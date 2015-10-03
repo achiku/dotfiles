@@ -13,7 +13,7 @@ if has('gui_macvim')
     set visualbell t_vb=
     set nobackup
     highlight Cursor guifg=NONE guibg=Green
-    highlight CursorIM guifg=NONE guibg=Purple
+    highlight CursorIM guifg=NONE guibg=White
     set noimdisableactivate
     " ヤンクをクリップボードへ送り込む
     set clipboard+=unnamed
