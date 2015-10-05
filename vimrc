@@ -33,8 +33,6 @@ NeoBundle 'vim-scripts/dbext.vim', '18.0'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -60,6 +58,11 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
+
+"" Colors
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'dylanaraps/crayon'
+NeoBundle 'nanotech/jellybeans.vim'
 
 
 call neobundle#end()
