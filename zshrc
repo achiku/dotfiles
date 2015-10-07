@@ -34,7 +34,7 @@ eval "$(rbenv init -)"
 . $HOME/.nvm/nvm.sh
 
 # for golang
-export GOVERSION=1.4.2
+export GOVERSION=1.5.1
 export GOPATH=$HOME/.go/$GOVERSION
 export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
 export PATH=$GOPATH/bin:$PATH
