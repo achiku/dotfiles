@@ -238,9 +238,9 @@ source ~/.vim/etc/dbext.vim
 
 
 """ neosnippet
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+imap <C-h> <Plug>(neosnippet_expand_or_jump)
+smap <C-h> <Plug>(neosnippet_expand_or_jump)
+xmap <C-h> <Plug>(neosnippet_expand_target)
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
@@ -384,8 +384,6 @@ let g:quickrun_config = {
 
 
 """ go-vim
-autocmd FileType go let g:neocomplete#disable_auto_complete = 0
-
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
