@@ -92,6 +92,7 @@ set shiftwidth=4
 set expandtab
 
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jade setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jinja setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -154,6 +155,7 @@ source ~/.vim/etc/lightline.vim
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'pep257']
+let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
