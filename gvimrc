@@ -1,4 +1,3 @@
-
 if has('gui_macvim')
     syntax on
     set noundofile
