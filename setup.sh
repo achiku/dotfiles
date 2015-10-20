@@ -22,3 +22,10 @@ else
     echo 'creating symlink for .zshrc'
     ln -s ${current_dir}/zshrc ~/.zshrc
 fi
+
+if [[ -f ~/.tmux.conf ]]; then
+    echo '.tmux.conf is already placed at ~/.tmux.conf'
+else
+    echo 'creating symlink for .tmux.conf'
+    ln -s ${current_dir}/tmux.conf ~/.tmux.conf
+fi
