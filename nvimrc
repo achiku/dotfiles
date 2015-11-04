@@ -1,4 +1,4 @@
-"" source ~/.vimrc
+source ~/.vimrc
 "" let g:python_host_prog = '/usr/local/bin/python3'
 "" NeoBundle 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1

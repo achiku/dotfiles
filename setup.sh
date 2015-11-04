@@ -30,9 +30,9 @@ else
     ln -s ${current_dir}/tmux.conf ~/.tmux.conf
 fi
 
-if [[ -f ~/.nvimrc ]]; then
+if [[ -f ~/.config/nvim/init.vim ]]; then
     echo '.nvimrc is already placed at ~/.nvimrc'
 else
-    echo 'creating symlink for .nvimrc'
-    ln -s ${current_dir}/nvimrc ~/.nvimrc
+    echo 'creating symlink for init.vim'
+    ln -s ${current_dir}/nvimrc ~/.config/nvim/init.vim
 fi
