@@ -154,11 +154,11 @@ source ~/.vim/etc/lightline.vim
 "" synatastic
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8', 'pep257']
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 let g:syntastic_error_symbol='✗'
@@ -326,8 +326,11 @@ let g:neocomplete#enable_smart_case = 1
 " Invalidate auto-complete
 let g:neocomplete#disable_auto_complete = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#skip_auto_completion_time = '0.2'
+let g:neocomplete#sources#syntax#min_keyword_length = 4
+let g:neocomplete#auto_completion_start_length = 4
 " Plugin key-mappings.
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
@@ -365,13 +368,13 @@ let g:jedi#popup_select_first = 0
 let g:jedi#rename_command = '<Leader>R'
 
 autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType python let g:neocomplete#disable_auto_complete = 0
+" autocmd FileType python let g:neocomplete#disable_auto_complete = 0
  
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 
 if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
 
 " let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
