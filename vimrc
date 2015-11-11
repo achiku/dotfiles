@@ -63,6 +63,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'dylanaraps/crayon'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle '29decibel/codeschool-vim-theme'
 
 
 call neobundle#end()
