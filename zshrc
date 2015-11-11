@@ -109,4 +109,3 @@ zle -N history-beginning-search-forward-end history-search-end
 
 export GIT_PROMPT_EXECUTABLE="haskell"
 source ~/.zsh/git-prompt/zshrc.sh
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
