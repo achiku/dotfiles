@@ -1,6 +1,7 @@
 " =============================
 " neobundle settings
 " =============================
+let g:python_host_prog = '/usr/local/bin/python3'
 if has('vim_starting')
     set runtimepath+=~/.config/nvim/neobundle.vim/
 endif
