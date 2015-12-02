@@ -11,9 +11,6 @@ alias ll='ls -l'
 alias l='ls -ltr'
 alias la='ls -ltra'
 
-alias g='cd $(ghq list -p | peco)'
-alias gh='gh-open $(ghq list -p | peco)'
-
 # for custom aliases 
 if [[ -f ~/.myalias ]]; then
     source ~/.myalias
@@ -37,8 +34,9 @@ eval "$(rbenv init -)"
 export GOVERSION=1.5.1
 export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/.go/$GOVERSION
-export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
 export PATH=$GOPATH/bin:$PATH
+alias gp='cd $GOPATH/src/'
+#export GOM_VENDOR_NAME='vendor'
 
 # path for homebrew and pipsi (this must come to the very begining of PATH)
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH

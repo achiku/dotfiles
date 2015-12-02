@@ -267,24 +267,6 @@ nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
 nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 
 
-""" Kobito
-function! s:open_kobito(...)
-    if a:0 == 0
-        call system('open -a Kobito '.expand('%:p'))
-    else
-        call system('open -a Kobito '.join(a:000, ' '))
-    endif
-endfunction
-" 引数のファイル(複数指定可)を Kobitoで開く
-" （引数無しのときはカレントバッファを開く
-command! -nargs=* Kobito call s:open_kobito(<f-args>)
-" Kobito を閉じる
-command! -nargs=0 KobitoClose call system("osascript -e 'tell application \"Kobito\" to quit'")
-" Kobito にフォーカスを移す
-command! -nargs=0 KobitoFocus call system("osascript -e 'tell application \"Kobito\" to activate'")
-
-
-
 """ jedi-vim
 " jediにvimの設定を任せると'completeopt+=preview'するので
 " 自動設定機能をOFFにし手動で設定を行う
