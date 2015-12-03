@@ -1,6 +1,8 @@
 " =============================
 " neobundle settings
 " =============================
+"Python3 support
+let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/py3/bin/python3'
 if has('vim_starting')
     set runtimepath+=~/.config/nvim/neobundle.vim/
 endif
