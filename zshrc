@@ -63,6 +63,9 @@ export PGDATA=/usr/local/var/postgres
 # for custom tools
 export PATH=$HOME/bin:$PATH
 
+# neovim
+alias vim=nvim
+
 # zsh completion
 autoload -U compinit
 compinit
