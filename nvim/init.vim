@@ -156,12 +156,20 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
+
 let g:syntastic_ruby_checkers = ['rubocop']
+
 let g:syntastic_javascript_checkers = ['eslint']
+
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+
 nmap <silent><Leader>ee <Esc>:Errors<CR>
 
 
@@ -304,11 +312,13 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
+let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 
 augroup GolangSettings
     autocmd!
     autocmd FileType go nmap <leader>gb <Plug>(go-build)
+    " autocmd FileType go nmap <leader>gt :<C-u>GoTest<CR>
     autocmd FileType go nmap <leader>gt <Plug>(go-test)
     autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
     autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
