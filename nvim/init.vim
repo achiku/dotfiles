@@ -143,6 +143,8 @@ nnoremap <silent> <space>` yyp<c-v>$r`
 nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>% :<C-u>source $MYVIMRC<CR>
 
+command! -nargs=* -bar -bang -count=0 -complete=dir Ex Explore <args>
+
 "=================================
 " plugin settings
 "=================================
@@ -258,7 +260,13 @@ let g:indent_guides_guide_size = 1
 
 
 """ test-vim
-let test#strategy = "neoterm"
+"function! SplitStrategy(cmd)
+"  botright new | call termopen(a:cmd)
+"endfunction
+"
+"let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+"let g:test#strategy = 'terminal_split'
+let g:test#strategy = 'neoterm'
 
 nmap <silent> <leader>pf :TestNearest -v<CR>
 nmap <silent> <leader>pi :TestFile -v<CR>
