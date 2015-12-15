@@ -43,7 +43,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'autowitch/hive.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'alfredodeza/pytest.vim'
+NeoBundle 'janko-m/vim-test'
+NeoBundle 'kassio/neoterm'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/SQLUtilities'
@@ -256,17 +257,14 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 
-""" pytest.vim
-" ファイル全体に py.test を実行
-nmap <silent><Leader>pi <Esc>:Pytest file<CR>
-" " フォーカスのあたってるクラスに py.test を実行
-nmap <silent><Leader>pc <Esc>:Pytest class<CR>
-" " フォーカスのあたってるメソッドに py.test を実行
-nmap <silent><Leader>pm <Esc>:Pytest method<CR>
-" " フォーカスのあたってる関数に py.test を実行
-nmap <silent><Leader>pf <Esc>:Pytest function<CR>
-" " エラーメッセージなどのログウィンドウ表示をトグル
-nmap <silent><Leader>ps <Esc>:Pytest session<CR>
+""" test-vim
+let test#strategy = "neoterm"
+
+nmap <silent> <leader>pf :TestNearest -v<CR>
+nmap <silent> <leader>pi :TestFile -v<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 
 """ SQLFormatter
