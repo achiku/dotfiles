@@ -159,17 +159,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
-
 let g:syntastic_ruby_checkers = ['rubocop']
-
 let g:syntastic_javascript_checkers = ['eslint']
-
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
-
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
@@ -259,7 +254,7 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 
-""" test-vim
+""" vim-test
 "function! SplitStrategy(cmd)
 "  botright new | call termopen(a:cmd)
 "endfunction
@@ -268,11 +263,23 @@ let g:indent_guides_guide_size = 1
 "let g:test#strategy = 'terminal_split'
 let g:test#strategy = 'neoterm'
 
-nmap <silent> <leader>pf :TestNearest -v<CR>
-nmap <silent> <leader>pi :TestFile -v<CR>
+" for pytest-django
+nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
+nmap <silent> <leader>pfn :TestNearest --create-db<CR>
+nmap <silent> <leader>pi :TestFile --reuse-db<CR>
+nmap <silent> <leader>pin :TestFile --create-db<CR>
+
+nmap <silent> <leader>f :TestNearest<CR>
+nmap <silent> <leader>i :TestNearest<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+
+let test#python#pytest#options = {
+  \ 'nearest': '--verbose',
+  \ 'file':    '--verbose',
+  \ 'suite':   '--verbose',
+\}
 
 
 """ SQLFormatter
