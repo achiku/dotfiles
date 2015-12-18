@@ -36,7 +36,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'nixprime/cpsm'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'thinca/vim-quickrun'
@@ -171,9 +172,18 @@ let g:syntastic_warning_symbol='⚠'
 nmap <silent><Leader>ee <Esc>:Errors<CR>
 
 
-"" ctlp
+"" ctrlp
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+" let g:ctrlp_user_command = 'files -a %s'
+
 set wildignore+=**/tmp/,*.so,*.swp,*.zip,*.pyc,htmlcov,__pycache__
-let g:ctrlp_custom_ignore = 'htmlcov\|git\|node_modules\|DS_Store\|*.pyc'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|htmlcov|node_modules|DS_Store)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 nnoremap s <Nop>
 nnoremap sa :<C-u>CtrlP<Space>
 nnoremap sb :<C-u>CtrlPBuffer<CR>
