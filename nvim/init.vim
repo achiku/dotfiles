@@ -280,7 +280,6 @@ nmap <silent> <leader>pi :TestFile --reuse-db<CR>
 nmap <silent> <leader>pin :TestFile --create-db<CR>
 
 nmap <silent> <leader>f :TestNearest<CR>
-nmap <silent> <leader>i :TestNearest<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
@@ -289,6 +288,11 @@ let test#python#pytest#options = {
   \ 'nearest': '--verbose',
   \ 'file':    '--verbose',
   \ 'suite':   '--verbose',
+\}
+let test#go#gotest#options = {
+  \ 'nearest': '-v',
+  \ 'file':    '-v',
+  \ 'suite':   '-v',
 \}
 
 
