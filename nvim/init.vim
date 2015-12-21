@@ -157,9 +157,10 @@ source ~/.vim/etc/lightline.vim
 "" synatastic
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
+" let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
+" let g:syntastic_python_checkers = ['flake8', 'mypy']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
-let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
+" let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
@@ -244,7 +245,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
-let g:neosnippet#snippets_directory='~/.vim/snippets'
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 
 
 "" vim-indent-guides
