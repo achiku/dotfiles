@@ -56,6 +56,7 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 " NeoBundle 'miyakogi/vim-virtualenv'
+NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -151,7 +152,7 @@ command! -nargs=* -bar -bang -count=0 -complete=dir Ex Explore <args>
 "=================================
 
 "" lightline
-source ~/.vim/etc/lightline.vim
+source ~/.config/nvim/etc/lightline.vim
 
 
 "" synatastic
@@ -317,6 +318,11 @@ let g:jedi#rename_command = '<Leader>R'
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal omnifunc=jedi#completions
+
+
+""" vim-virtualenv
+let g:virtualenv_auto_activate = 1
+let g:virtualenv_stl_format = '[%n]'
 
 
 """ quickrun
