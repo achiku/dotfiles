@@ -55,7 +55,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'miyakogi/vim-virtualenv'
+" NeoBundle 'miyakogi/vim-virtualenv'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -275,12 +275,13 @@ let g:indent_guides_guide_size = 1
 let g:test#strategy = 'neoterm'
 
 " for pytest-django
-nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
-nmap <silent> <leader>pfn :TestNearest --create-db<CR>
-nmap <silent> <leader>pi :TestFile --reuse-db<CR>
-nmap <silent> <leader>pin :TestFile --create-db<CR>
+" nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
+" nmap <silent> <leader>pfn :TestNearest --create-db<CR>
+" nmap <silent> <leader>pi :TestFile --reuse-db<CR>
+" nmap <silent> <leader>pin :TestFile --create-db<CR>
 
 nmap <silent> <leader>f :TestNearest<CR>
+nmap <silent> <leader>i :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
@@ -334,7 +335,7 @@ let g:quickrun_config = {
 \}
 
 
-""" go-vim
+""" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
