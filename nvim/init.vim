@@ -55,12 +55,13 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
-" NeoBundle 'miyakogi/vim-virtualenv'
-NeoBundle 'jmcantrell/vim-virtualenv'
+NeoBundle 'miyakogi/vim-virtualenv'
+" NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
+
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -311,6 +312,7 @@ nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 " jediにvimの設定を任せると'completeopt+=preview'するので
 " 自動設定機能をOFFにし手動で設定を行う
 autocmd FileType python setlocal completeopt-=preview
+let g:jedi#force_py_version = 3
 let g:jedi#popup_select_first = 0
 " quickrunと被るため大文字に変更
 let g:jedi#rename_command = '<Leader>R'
@@ -318,7 +320,6 @@ let g:jedi#rename_command = '<Leader>R'
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
 autocmd FileType python setlocal omnifunc=jedi#completions
-
 
 """ vim-virtualenv
 let g:virtualenv_auto_activate = 1
