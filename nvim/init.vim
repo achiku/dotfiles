@@ -3,8 +3,14 @@
 " =============================
 "Python3 support
 let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/py3/bin/python3'
+
+
 if has('vim_starting')
     set runtimepath+=~/.config/nvim/neobundle.vim/
+    if filereadable('.local_vimrc')
+        let s:plugin_dev_dir = getcwd()
+        execute 'set runtimepath+=' . s:plugin_dev_dir
+    endif
 endif
 
 call neobundle#begin(expand('~/.config/nvim/bundle/'))
@@ -61,6 +67,8 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
+" NeoBundle 'dpzmick/neovim-hackernews'
+NeoBundle 'ryanss/vim-hackernews'
 
 
 "" Colors
