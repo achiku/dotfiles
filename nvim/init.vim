@@ -4,7 +4,6 @@
 "Python3 support
 let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/py3/bin/python3'
 
-
 if has('vim_starting')
     set runtimepath+=~/.config/nvim/neobundle.vim/
     if filereadable('.local_vimrc')
@@ -29,7 +28,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
-
 
 " =============================
 " plugins
@@ -62,12 +60,10 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'miyakogi/vim-virtualenv'
-" NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
-" NeoBundle 'dpzmick/neovim-hackernews'
 NeoBundle 'ryanss/vim-hackernews'
 
 
