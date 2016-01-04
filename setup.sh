@@ -31,8 +31,22 @@ else
 fi
 
 if [[ -f ~/.config/nvim/init.vim ]]; then
-    echo '.nvimrc is already placed at ~/.nvimrc'
+    echo 'init.vim is already placed at ~/.config/nvim/init.vim'
 else
     echo 'creating symlink for init.vim'
     ln -s ${current_dir}/nvim/init.vim ~/.config/nvim/init.vim
+fi
+
+if [[ -f ~/.config/nvim/etc ]]; then
+    echo 'nvim/etc is already placed at ~/.config/nvim/etc'
+else
+    echo 'creating symlink for init.vim'
+    ln -s ${current_dir}/nvim/etc ~/.config/nvim/etc
+fi
+
+if [[ -f ~/.config/nvim/snippets ]]; then
+    echo 'nvim/snippets is already placed at ~/.config/nvim/snippets'
+else
+    echo 'creating symlink for init.vim'
+    ln -s ${current_dir}/nvim/snippets ~/.config/nvim/snippets
 fi
