@@ -99,6 +99,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jade setlocal tabstop=2 softtabstop=2 shiftwidth=2
