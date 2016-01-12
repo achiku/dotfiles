@@ -129,7 +129,7 @@ set lazyredraw
 "" custom syntax highlight
 au BufRead,BufNewFile *.hql  set filetype=hive
 
-nmap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap j gj
 nnoremap k gk
 
@@ -148,8 +148,8 @@ nnoremap <silent> <space>" yyp<c-v>$r"
 nnoremap <silent> <space>' yyp<c-v>$r'
 nnoremap <silent> <space>` yyp<c-v>$r`
 
-nnoremap <Space>. :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>% :<C-u>source $MYVIMRC<CR>
+nnoremap <space>. :<C-u>edit $MYVIMRC<CR>
+nnoremap <space>% :<C-u>source $MYVIMRC<CR>
 
 command! -nargs=* -bar -bang -count=0 -complete=dir Ex Explore <args>
 
@@ -183,14 +183,14 @@ nmap <silent><Leader>ee <Esc>:Errors<CR>
 "" ctrlp
 " let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 " let g:ctrlp_user_command = 'files -a %s'
-
+" let g:ctrlp_user_command = "pt --nocolor -g '\\*' %s"
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set wildignore+=**/tmp/,*.so,*.swp,*.zip,*.pyc,htmlcov,__pycache__
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|htmlcov|node_modules|DS_Store)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 nnoremap s <Nop>
 nnoremap sa :<C-u>CtrlP<Space>
@@ -220,10 +220,10 @@ let g:ctrlp_open_multi = '10t' " 複数ファイルを開く時にタブで最�
 
 
 "" tagbar
-nmap <F9> :TagbarToggle<CR>
+nnoremap <F9> :TagbarToggle<CR>
 
 "" nerdtree
-nmap <F8> :NERDTreeToggle<CR>
+nnoremap <F8> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', 'node_modules$']
 
 " vim_goshrepl
