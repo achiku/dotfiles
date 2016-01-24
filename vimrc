@@ -3,8 +3,13 @@
 " =============================
 if has('vim_starting')
     set nocompatible               " Be iMproved
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.config/nvim/neobundle.vim/
+    if filereadable('.local_vimrc')
+        let s:plugin_dev_dir = getcwd()
+        execute 'set runtimepath+=' . s:plugin_dev_dir
+    endif
 endif
+
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
@@ -58,6 +63,7 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'achiku/vim-kaonashi'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
