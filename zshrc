@@ -20,6 +20,9 @@ fi
 export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
 export CLOUDSDK_COMPUTE_REGION=asia-east1
 
+# path for homebrew and pipsi (this must come to the very begining of PATH)
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
+
 # for completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 
@@ -28,18 +31,16 @@ export PATH=$HOME/.rbenv/shims:$PATH
 eval "$(rbenv init -)"
 
 # for node.js nvm
-. $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.5.3
+export GOVERSION=1.6beta2
 export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
 alias gp='cd $GOPATH/src/github.com/achiku/'
 #export GOM_VENDOR_NAME='vendor'
-
-# path for homebrew and pipsi (this must come to the very begining of PATH)
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
 
 # for Java
 export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
