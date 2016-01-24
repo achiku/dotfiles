@@ -72,6 +72,7 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'dylanaraps/crayon'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle '29decibel/codeschool-vim-theme'
+NeoBundle 'morhetz/gruvbox'
 
 
 call neobundle#end()
@@ -90,7 +91,8 @@ NeoBundleCheck
 " vim settings
 "=================================
 syntax on
-colorscheme jellybeans
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 set nofoldenable
 set number
@@ -173,7 +175,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
@@ -294,9 +296,9 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 let test#python#pytest#options = {
-  \ 'nearest': '--verbose',
-  \ 'file':    '--verbose',
-  \ 'suite':   '--verbose',
+  \ 'nearest': '-v',
+  \ 'file':    '-v',
+  \ 'suite':   '-v',
 \}
 let test#go#gotest#options = {
   \ 'nearest': '-v',
@@ -347,7 +349,7 @@ let g:quickrun_config = {
 \}
 
 
-""" vim-go
+"" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
