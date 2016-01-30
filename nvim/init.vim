@@ -65,6 +65,7 @@ NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'ryanss/vim-hackernews'
+NeoBundle 'evanmiller/nginx-vim-syntax'
 
 
 "" Colors
