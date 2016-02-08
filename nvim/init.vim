@@ -56,6 +56,7 @@ NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
@@ -66,7 +67,6 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'ryanss/vim-hackernews'
 NeoBundle 'evanmiller/nginx-vim-syntax'
-
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -110,7 +110,6 @@ autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jinja setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype j2 setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype js setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype hql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -176,7 +175,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
@@ -352,6 +351,7 @@ let g:quickrun_config = {
 
 "" vim-go
 let g:go_fmt_command = "goimports"
+let g:go_fmt_options = "-f " . expand("%:p")
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -372,6 +372,12 @@ augroup GolangSettings
   autocmd FileType go :highlight goErr cterm=bold ctermfg=214
   autocmd FileType go :match goErr /\<err\>/
 augroup END
+
+""" deoplete-go
+let g:deoplete#sources#go#align_class = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" let g:deoplete#sources#go#gocode_binary = '~/.go/1.5.3/bin/gocode'
+let g:deoplete#sources#go#package_dot = 1
 
 
 """ isort-vim
