@@ -27,15 +27,15 @@ export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # for ruby
-export PATH=$HOME/.rbenv/shims:$PATH
-eval "$(rbenv init -)"
+# export PATH=$HOME/.rbenv/shims:$PATH
+# eval "$(rbenv init -)"
 
 # for node.js nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.6beta2
+export GOVERSION=1.5.3
 export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH

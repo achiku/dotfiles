@@ -175,7 +175,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
@@ -232,8 +232,8 @@ let NERDTreeIgnore = ['\.pyc$', 'node_modules$']
 vmap <CR> <Plug>(gosh_repl_send_block)
 
 """ dbext.vim
-let g:dbext_default_history_file =  '~/.vim/bundle/dbext'
-source ~/.vim/etc/dbext.vim
+let g:dbext_default_history_file =  '~/.config/nvim/bundle/dbext_history.sql'
+source ~/.config/nvim/etc/dbext_config.vim
 
 
 """ neosnippet
