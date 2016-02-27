@@ -175,7 +175,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 " let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck', 'varcheck', 'deadcode']
+" let g:syntastic_go_metalinter_args = '--concurrency=16'
+let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -281,8 +282,8 @@ let g:indent_guides_guide_size = 1
 "endfunction
 "
 "let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
-"let g:test#strategy = 'terminal_split'
-let g:test#strategy = 'neoterm'
+" let g:test#strategy = 'terminal_split'
+let g:test#strategy = 'neovim'
 
 " for pytest-django
 " nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
@@ -352,7 +353,6 @@ let g:quickrun_config = {
 
 "" vim-go
 let g:go_fmt_command = "goimports"
-let g:go_fmt_options = "-f " . expand("%:p")
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -377,7 +377,7 @@ augroup END
 """ deoplete-go
 let g:deoplete#sources#go#align_class = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-" let g:deoplete#sources#go#gocode_binary = '~/.go/1.5.3/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = '~/.go/1.6/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 
 
