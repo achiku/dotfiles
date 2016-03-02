@@ -186,26 +186,15 @@ nmap <silent><Leader>ee <Esc>:Errors<CR>
 
 "" ctrlp
 " let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-" let g:ctrlp_user_command = 'files -a %s'
 " let g:ctrlp_user_command = "pt --nocolor -g '\\*' %s"
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = 'files -a %s'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 set wildignore+=**/tmp/,*.so,*.swp,*.zip,*.pyc,htmlcov,__pycache__
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|htmlcov|node_modules|DS_Store)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-
-nnoremap s <Nop>
-nnoremap sa :<C-u>CtrlP<Space>
-nnoremap sb :<C-u>CtrlPBuffer<CR>
-nnoremap sd :<C-u>CtrlPDir<CR>
-nnoremap sf :<C-u>CtrlP<CR>
-nnoremap sl :<C-u>CtrlPLine<CR>
-nnoremap sm :<C-u>CtrlPMRUFiles<CR>
-nnoremap sq :<C-u>CtrlPQuickfix<CR>
-nnoremap ss :<C-u>CtrlPMixed<CR>
-nnoremap st :<C-u>CtrlPTag<CR>
 
 let g:ctrlp_map = '<Nop>'
 " Guess vcs root dir
@@ -221,6 +210,17 @@ let g:ctrlp_mruf_max = 10000 " MRUの最大記録数
 let g:ctrlp_highlight_match = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
 let g:ctrlp_open_new_file = 1 " 新規ファイル作成時にタブで開く
 let g:ctrlp_open_multi = '10t' " 複数ファイルを開く時にタブで最大10まで開く
+
+nnoremap s <Nop>
+nnoremap sa :<C-u>CtrlP<Space>
+nnoremap sb :<C-u>CtrlPBuffer<CR>
+nnoremap sd :<C-u>CtrlPDir<CR>
+nnoremap sf :<C-u>CtrlP<CR>
+nnoremap sl :<C-u>CtrlPLine<CR>
+nnoremap sm :<C-u>CtrlPMRUFiles<CR>
+nnoremap sq :<C-u>CtrlPQuickfix<CR>
+nnoremap ss :<C-u>CtrlPMixed<CR>
+nnoremap st :<C-u>CtrlPTag<CR>
 
 
 "" tagbar
