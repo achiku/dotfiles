@@ -275,6 +275,9 @@ let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 1
 
+"" neoterm
+let g:neoterm_size = 15
+
 
 """ vim-test
 "function! SplitStrategy(cmd)
@@ -283,7 +286,7 @@ let g:indent_guides_guide_size = 1
 "
 "let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 " let g:test#strategy = 'terminal_split'
-let g:test#strategy = 'neovim'
+let g:test#strategy = 'neoterm'
 
 " for pytest-django
 " nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
