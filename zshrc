@@ -36,11 +36,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # for golang
 export GOVERSION=1.6
-export GO15VENDOREXPERIMENT=1
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
 alias gp='cd $GOPATH/src/github.com/achiku/'
-export GOM_VENDOR_NAME='vendor'
 
 # for Java
 export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
