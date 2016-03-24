@@ -67,6 +67,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'ryanss/vim-hackernews'
 NeoBundle 'evanmiller/nginx-vim-syntax'
+NeoBundle 'hashivim/vim-terraform'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
