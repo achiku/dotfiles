@@ -37,16 +37,16 @@ else
     ln -s ${current_dir}/nvim/init.vim ~/.config/nvim/init.vim
 fi
 
-if [[ -f ~/.config/nvim/etc ]]; then
+if [[ -d ~/.config/nvim/etc ]]; then
     echo 'nvim/etc is already placed at ~/.config/nvim/etc'
 else
-    echo 'creating symlink for init.vim'
+    echo 'creating symlink for nvim/etc'
     ln -s ${current_dir}/nvim/etc ~/.config/nvim/etc
 fi
 
-if [[ -f ~/.config/nvim/snippets ]]; then
+if [[ -d ~/.config/nvim/snippets ]]; then
     echo 'nvim/snippets is already placed at ~/.config/nvim/snippets'
 else
-    echo 'creating symlink for init.vim'
+    echo 'creating symlink for nvim/snippets'
     ln -s ${current_dir}/nvim/snippets ~/.config/nvim/snippets
 fi
