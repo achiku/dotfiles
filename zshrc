@@ -109,3 +109,7 @@ zle -N history-beginning-search-forward-end history-search-end
 
 export GIT_PROMPT_EXECUTABLE="haskell"
 source ~/.zsh/git-prompt/zshrc.sh
+
+# direnv
+export EDITOR=vim
+eval "$( direnv hook zsh )"
