@@ -1,0 +1,29 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+import argparse
+import random
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='genkey', description="Generate random string")
+    parser.add_argument(
+        '-l', '--length',
+        default=50,
+        type=int,
+        help="length of random string")
+    parser.add_argument(
+        '-s', '--with-symbols',
+        dest='with_symbols',
+        default=False,
+        action='store_true',
+        help="use symbols in random string")
+    args = parser.parse_args()
+
+    length = args.length
+    lower = 'abcdefghijklmnopqnstuvwxyz'
+    upper = lower.upper()
+    digit = '0123456789'
+    symbol = '!@#$%^&*_+'
+
+    source = list(lower + upper + digit + symbol) if args.with_symbols else list(lower + upper + digit)
+    key = ''.join([source[random.randint(0, len(source)-1)] for _ in range(length)])
+    print(key)

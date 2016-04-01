@@ -50,3 +50,10 @@ else
     echo 'creating symlink for nvim/snippets'
     ln -s ${current_dir}/nvim/snippets ~/.config/nvim/snippets
 fi
+
+if [[ -d ~/bin ]]; then
+    echo 'bin is already placed at ~/bin'
+else
+    echo 'creating symlink for ~/bin'
+    ln -s ${current_dir}/bin ~/bin
+fi

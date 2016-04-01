@@ -1,0 +1,32 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+import argparse
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='fintrsct', description="intersect operation for flat file")
+    parser.add_argument(
+        '-f', '--first-operand',
+        dest='first_operand_file',
+        type=str,
+        required=True,
+        help="first operand")
+    parser.add_argument(
+        '-s', '--second-operand',
+        dest='second_operand_file',
+        type=str,
+        required=True,
+        help="second operand")
+    args = parser.parse_args()
+
+    with open(args.first_operand_file, 'r') as fh:
+        first = [line.strip() for line in fh.readlines()]
+
+    with open(args.second_operand_file, 'r') as fh:
+        second = [line.strip() for line in fh.readlines()]
+
+    first_set = set(first)
+    second_set = set(second)
+    result = first_set.intersection(second_set)
+    for line in result:
+        print(line)

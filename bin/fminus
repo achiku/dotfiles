@@ -1,0 +1,32 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+import argparse
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='fminus', description="minus set operation for flat file")
+    parser.add_argument(
+        '-f', '--first-operand',
+        dest='first_operand_file',
+        type=str,
+        required=True,
+        help="first operand")
+    parser.add_argument(
+        '-s', '--second-operand',
+        dest='second_operand_file',
+        type=str,
+        required=True,
+        help="second operand")
+    args = parser.parse_args()
+
+    with open(args.first_operand_file, 'r') as fh:
+        minus_from = [line.strip() for line in fh.readlines()]
+
+    with open(args.second_operand_file, 'r') as fh:
+        minus_file = [line.strip() for line in fh.readlines()]
+
+    minus_from_set = set(minus_from)
+    minus_set = set(minus_file)
+    result = minus_from_set.difference(minus_set)
+    for line in result:
+        print(line)

@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import argparse
+import calendar
+import datetime
+import sys
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser('lstday', description="get last day of month")
+    parser.add_argument(
+        'mt', metavar='M', type=int, help="Month")
+    parser.add_argument(
+        '-y', '--year', dest='year', type=int, default=None,
+        help="Year. Default is this year.")
+    args = parser.parse_args()
+
+    if args.mt not in range(1, 13):
+        print("Month has to be between 1 and 12")
+        sys.exit(2)
+    year = args.year or datetime.datetime.today().year
+    _, last_day = calendar.monthrange(year, args.mt)
+    print(last_day)

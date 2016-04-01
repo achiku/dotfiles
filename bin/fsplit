@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+import argparse
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='fsplit', description="Split specified file into pieces")
+    parser.add_argument(
+        '-f', '--file',
+        dest='target_file',
+        type=str,
+        required=True,
+        help="target file")
+    parser.add_argument(
+        '-n', '--num-files',
+        dest='num_files',
+        type=int,
+        required=True,
+        help="number of files to split into")
+    parser.add_argument(
+        '-d', '--dry-run',
+        dest='dry_run',
+        default=False,
+        action='store_true',
+        help="dry run and exit")
+    args = parser.parse_args()
+
+    lines = []
+    with open(args.target_file, 'r') as fh:
+        lines = [line.strip() for line in fh.readlines()]
+    dest_file_names = ["{0}_{1}".format(args.target_file, i) for i in range(0, args.num_files)]
+    if len(lines) % args.num_files == 0:
+        lines_per_file = len(lines) / args.num_files
+    else:
+        lines_per_file = (len(lines) / args.num_files) + 1
+
+    if args.dry_run:
+        print("{0} has {1} lines".format(args.target_file, len(lines)))
+        print("split it into {0} files with max. {1} lines".format(args.num_files, lines_per_file))
+        sys.exit(0)
+
+    start_idx = 0
+    end_idx = lines_per_file
+    for f in dest_file_names:
+        with open(f, 'w') as fh:
+            fh.write('\n'.join(lines[start_idx:end_idx]))
+            fh.write('\n')
+        start_idx += lines_per_file
+        end_idx += lines_per_file
