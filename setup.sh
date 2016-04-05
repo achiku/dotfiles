@@ -2,6 +2,13 @@
 
 current_dir=$( pwd )
 
+if [[ -f ~/.tigrc ]]; then
+    echo '.tigrc is already placed at ~/.tigrc'
+else
+    echo 'creating symlink for .tigrc'
+    ln -s ${current_dir}/tigrc ~/.tigrc
+fi
+
 if [[ -f ~/.vimrc ]]; then
     echo '.vimrc is already placed at ~/.vimrc'
 else
