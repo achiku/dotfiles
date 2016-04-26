@@ -35,9 +35,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.6
+export GOVERSION=1.6.1
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
+export GOGC=2000
 alias gp='cd $GOPATH/src/github.com/achiku/'
 
 # for Java
