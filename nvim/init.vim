@@ -57,7 +57,7 @@ NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'miyakogi/vim-virtualenv'
@@ -68,6 +68,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'ryanss/vim-hackernews'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'hashivim/vim-terraform'
+NeoBundle 'yoppi/fluentd.vim'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -103,6 +104,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
