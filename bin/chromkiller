@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ps auwx | grep Chrome | tr -s ' ' | cut -f2 -d' ' | xargs kill -9
