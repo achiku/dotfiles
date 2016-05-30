@@ -179,7 +179,7 @@ let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
 " let g:syntastic_go_checkers = ['gometalinter']
 " let g:syntastic_go_metalinter_args = '--concurrency=16'
-let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
+" let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -365,6 +365,9 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['golint', 'gotype', 'govet', 'go']
 
 augroup GolangSettings
   autocmd!
@@ -383,7 +386,7 @@ augroup END
 """ deoplete-go
 let g:deoplete#sources#go#align_class = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#gocode_binary = '~/.go/1.6/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = '~/.go/1.6.1/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 
 
