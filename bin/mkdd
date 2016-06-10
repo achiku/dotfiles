@@ -8,3 +8,4 @@ if __name__ == '__main__':
     dirname = d.strftime('%Y%m%d')
     if not os.path.exists(dirname):
         os.makedirs(dirname)
+        print(dirname)
