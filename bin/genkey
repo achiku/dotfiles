@@ -22,7 +22,7 @@ if __name__ == '__main__':
     lower = 'abcdefghijklmnopqnstuvwxyz'
     upper = lower.upper()
     digit = '0123456789'
-    symbol = '!@#$%^&*_+'
+    symbol = '!#%&+-./:=?[]_!'
 
     source = list(lower + upper + digit + symbol) if args.with_symbols else list(lower + upper + digit)
     key = ''.join([source[random.randint(0, len(source)-1)] for _ in range(length)])
