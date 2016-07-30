@@ -2,3 +2,6 @@
 \set PROMPT2 '%[%033[1;32m%]%R%#%[%033[0m%] '
 \timing on
 \set HISTSIZE 1000000']]]]'
+\set COMP_KEYWORD_CASE upper
+\x auto
+\pset null ¤
