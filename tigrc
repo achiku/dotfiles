@@ -11,7 +11,7 @@ set line-graphics = default
 
 # メインビューの表示設定
 # @see: http://jonas.nitro.dk/tig/tigrc.5.html
-set main-view = id:no line-number:display:yes,width:0 date:short author:yes commit-title:graph=v2,refs=yes
+set main-view = id:no line-number:display:yes,width:0 date-format:short author:yes commit-title:graph=v2,refs=yes
 
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
