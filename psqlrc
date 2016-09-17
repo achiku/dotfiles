@@ -1,7 +1,9 @@
-\set PROMPT1 '%[%033[1;32m%]%n %`date +%H:%M` %R%#%[%033[0m%] '
+\set PROMPT1 '%[%033[1;32m%]%n:%/:%M:dev %`date +%H:%M` %R%#%[%033[0m%] '
 \set PROMPT2 '%[%033[1;32m%]%R%#%[%033[0m%] '
 \timing on
 \set HISTSIZE 1000000']]]]'
 \set COMP_KEYWORD_CASE upper
 \x auto
-\pset null ¤
+\pset null '[NULL]'
+\set HISTCONTROL ignoredups
+\set ON_ERROR_ROLLBACK interactive

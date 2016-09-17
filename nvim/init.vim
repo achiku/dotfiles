@@ -69,6 +69,7 @@ NeoBundle 'ryanss/vim-hackernews'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
+NeoBundle 'metakirby5/codi.vim'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -76,6 +77,8 @@ NeoBundle 'dylanaraps/crayon'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle '29decibel/codeschool-vim-theme'
 NeoBundle 'morhetz/gruvbox'
+NeoBundle 'roosta/srcery'
+NeoBundle 'jacoborus/tender'
 
 
 call neobundle#end()

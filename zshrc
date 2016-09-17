@@ -22,6 +22,7 @@ export CLOUDSDK_COMPUTE_REGION=asia-east1
 
 # path for homebrew and pipsi (this must come to the very begining of PATH)
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
+# export HOMEBREW_VERBOSE=true
 
 # for completion
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -36,6 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # for golang
 export GOVERSION=1.6.1
+# export GOVERSION=1.7
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
 export GOGC=2000
