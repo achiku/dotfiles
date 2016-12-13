@@ -36,7 +36,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.6.1
+export GOVERSION=1.7.3
 # export GOVERSION=1.7
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
@@ -57,10 +57,6 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 
 # for postgresql
 export PGDATA=/usr/local/var/postgres
-
-# for docker
-. $HOME/.dockerrc
-
 
 # for custom tools
 export PATH=$HOME/bin:$PATH
