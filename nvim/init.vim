@@ -172,10 +172,10 @@ source ~/.config/nvim/etc/lightline.vim
 "" synatastic
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
-" let g:syntastic_python_checkers = ['flake8', 'mypy']
+" let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
-let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
+" let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
@@ -231,6 +231,8 @@ nnoremap st :<C-u>CtrlPTag<CR>
 
 "" tagbar
 nnoremap <F9> :TagbarToggle<CR>
+let g:tagbar_left = 1
+let g:tagbar_width = 45
 
 "" nerdtree
 nnoremap <F8> :NERDTreeToggle<CR>
@@ -393,7 +395,7 @@ augroup END
 """ deoplete-go
 let g:deoplete#sources#go#align_class = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#gocode_binary = '~/.go/1.6.1/bin/gocode'
+" let g:deoplete#sources#go#gocode_binary = '~/.go/1.6.1/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 
 
