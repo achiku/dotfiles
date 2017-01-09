@@ -173,7 +173,8 @@ source ~/.config/nvim/etc/lightline.vim
 " let g:syntastic_debug = 1
 let g:syntastic_check_on_open = 1
 " let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
-let g:syntastic_python_checkers = ['flake8', 'mypy']
+" let g:syntastic_python_checkers = ['flake8', 'mypy']
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 " let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
 let g:syntastic_ruby_checkers = ['rubocop']
