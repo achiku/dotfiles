@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/.local/venvs/
+for i in $( ls -d *); do ./${i}bin/pip install pip --upgrade; done
