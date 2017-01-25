@@ -71,6 +71,11 @@ NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'
 
+"" haskell
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'dag/vim2hs'
+
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'dylanaraps/crayon'
@@ -421,3 +426,7 @@ let g:deoplete#enable_smart_case = 1
 
 inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+
+
+""" vim2hs
+let g:haskell_conceal_wide = 1
