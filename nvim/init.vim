@@ -70,6 +70,7 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'
+NeoBundle 'tell-k/vim-autopep8'
 
 "" haskell
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -430,3 +431,7 @@ inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 """ vim2hs
 let g:haskell_conceal_wide = 1
+
+
+""" ghcmod-vim
+autocmd BufWritePost *.hs GhcModCheckAndLintAsync
