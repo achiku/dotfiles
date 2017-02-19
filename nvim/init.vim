@@ -379,11 +379,14 @@ let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
 let g:go_metalinter_autosave = 1
+let g:go_metalinter_command = "--tests"
 let g:go_metalinter_autosave_enabled = [
       \  'golint',
       \  'gotype',
       \  'vet',
+      \  'unused',
       \]
+
 
 augroup GolangSettings
   autocmd!

@@ -1,5 +1,6 @@
 if has('gui_macvim')
     syntax on
+    colorscheme jellybeans
     set noundofile
     set transparency=10
     set antialias
