@@ -85,6 +85,7 @@ NeoBundle '29decibel/codeschool-vim-theme'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'roosta/srcery'
 NeoBundle 'jacoborus/tender'
+NeoBundle 'mhartington/oceanic-next'
 
 
 call neobundle#end()
@@ -379,12 +380,13 @@ let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
 let g:go_metalinter_autosave = 1
-let g:go_metalinter_command = "--tests"
+let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
+" let g:go_metalinter_command = "-t"
+" gometalinter --disable-all --enable=gotype --enable=vet --enable=golint -t
 let g:go_metalinter_autosave_enabled = [
       \  'golint',
       \  'gotype',
       \  'vet',
-      \  'unused',
       \]
 
 
