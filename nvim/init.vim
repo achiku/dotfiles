@@ -71,6 +71,7 @@ NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
+" NeoBundle 'w0rp/ale'
 
 "" haskell
 NeoBundle 'eagletmt/ghcmod-vim'
