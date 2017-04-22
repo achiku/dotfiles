@@ -73,6 +73,11 @@ NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
 " NeoBundle 'w0rp/ale'
 
+"" elixir
+NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'slashmili/alchemist.vim'
+" NeoBundle 'awetzel/elixir.nvim'
+
 "" haskell
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
@@ -193,6 +198,10 @@ let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelint
 " let g:syntastic_go_metalinter_args = '--concurrency=16'
 " let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_elixir_checkers = ['elixir']
+" let g:syntastic_enable_elixir_checker = 1
+" let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
+
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 
@@ -408,7 +417,6 @@ augroup END
 """ deoplete-go
 let g:deoplete#sources#go#align_class = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-" let g:deoplete#sources#go#gocode_binary = '~/.go/1.6.1/bin/gocode'
 let g:deoplete#sources#go#package_dot = 1
 
 
@@ -441,3 +449,25 @@ let g:haskell_conceal_wide = 1
 
 """ ghcmod-vim
 autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+
+
+""" elixir.nvim
+let g:elixir_showerror = 1
+let g:elixir_autobuild = 1
+
+
+""" ale
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\}
+" let g:ale_lint_on_enter = 1
+" let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_flake8_args = '--max-line-length=120'
