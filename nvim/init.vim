@@ -36,7 +36,7 @@ NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/lightline-hybrid.vim'
 NeoBundle 'vim-scripts/dbext.vim', '18.0'
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
@@ -71,7 +71,7 @@ NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
-" NeoBundle 'w0rp/ale'
+NeoBundle 'w0rp/ale'
 
 "" elixir
 NeoBundle 'elixir-lang/vim-elixir'
@@ -82,6 +82,12 @@ NeoBundle 'slashmili/alchemist.vim'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'dag/vim2hs'
+
+"" javascript + react
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'MaxMEllon/vim-jsx-pretty'
+
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -183,29 +189,29 @@ source ~/.config/nvim/etc/lightline.vim
 
 
 "" synatastic
-" let g:syntastic_debug = 1
-let g:syntastic_check_on_open = 1
-" let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
-" let g:syntastic_python_checkers = ['flake8', 'mypy']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--max-line-length=120'
-" let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
-" let g:syntastic_go_checkers = ['gometalinter']
-" let g:syntastic_go_metalinter_args = '--concurrency=16'
-" let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" let g:syntastic_elixir_checkers = ['elixir']
-" let g:syntastic_enable_elixir_checker = 1
-" let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-
-nmap <silent><Leader>ee <Esc>:Errors<CR>
+" " let g:syntastic_debug = 1
+" let g:syntastic_check_on_open = 1
+" " let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
+" " let g:syntastic_python_checkers = ['flake8', 'mypy']
+" let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_python_flake8_args = '--max-line-length=120'
+" " let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
+" let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_coffee_checkers = ['coffeelint']
+" let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
+" " let g:syntastic_go_checkers = ['gometalinter']
+" " let g:syntastic_go_metalinter_args = '--concurrency=16'
+" " let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
+" " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" " let g:syntastic_elixir_checkers = ['elixir']
+" " let g:syntastic_enable_elixir_checker = 1
+" " let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
+" 
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" 
+" nmap <silent><Leader>ee <Esc>:Errors<CR>
 
 
 "" ctrlp
@@ -313,6 +319,9 @@ let g:neoterm_size = 15
 "let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 " let g:test#strategy = 'terminal_split'
 let g:test#strategy = 'neoterm'
+" let g:test#strategy = 'asyncrun'
+" let g:test#strategy = 'neovim'
+let g:test#preserve_screen = 1
 
 " for pytest-django
 " nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
@@ -457,17 +466,24 @@ let g:elixir_autobuild = 1
 
 
 """ ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \   'python': ['flake8'],
 \}
-" let g:ale_lint_on_enter = 1
-" let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-" let g:ale_keep_list_window_open = 1
+" let g:ale_set_quickfix = 1
+let g:ale_open_list = 0
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_python_flake8_args = '--max-line-length=120'
+
+
+"" vim-jsx
+let g:jsx_ext_required = 0
