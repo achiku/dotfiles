@@ -398,15 +398,15 @@ let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
 " let g:go_metalinter_command = "-t"
 " gometalinter --disable-all --enable=gotype --enable=vet --enable=golint -t
-let g:go_metalinter_autosave_enabled = [
-      \  'golint',
-      \  'gotype',
-      \  'vet',
-      \]
+" let g:go_metalinter_autosave_enabled = [
+"       \  'golint',
+"       \  'gotype',
+"       \  'vet',
+"       \]
 
 
 augroup GolangSettings
@@ -469,12 +469,18 @@ let g:elixir_autobuild = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'python': ['flake8'],
+\   'go': ['gometalinter'],
 \}
-" let g:ale_set_quickfix = 1
-let g:ale_open_list = 0
+
+let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
+let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
