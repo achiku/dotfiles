@@ -36,8 +36,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.7.3
-# export GOVERSION=1.7
+export GOVERSION=1.8.3
 export GOPATH=$HOME/.go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
 export GOGC=2000
