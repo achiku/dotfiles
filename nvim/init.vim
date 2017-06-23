@@ -36,7 +36,6 @@ NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/lightline-hybrid.vim'
 NeoBundle 'vim-scripts/dbext.vim', '18.0'
-" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
@@ -186,32 +185,6 @@ command! -nargs=* -bar -bang -count=0 -complete=dir Ex Explore <args>
 
 "" lightline
 source ~/.config/nvim/etc/lightline.vim
-
-
-"" synatastic
-" " let g:syntastic_debug = 1
-" let g:syntastic_check_on_open = 1
-" " let g:syntastic_python_checkers = ['flake8', 'pep257', 'mypy']
-" " let g:syntastic_python_checkers = ['flake8', 'mypy']
-" let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_python_flake8_args = '--max-line-length=120'
-" " let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400,D401,D211'
-" let g:syntastic_ruby_checkers = ['rubocop']
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_coffee_checkers = ['coffeelint']
-" let g:syntastic_coffee_coffeelint_args = '--csv --file ' . $HOME . '/.coffeelintrc'
-" " let g:syntastic_go_checkers = ['gometalinter']
-" " let g:syntastic_go_metalinter_args = '--concurrency=16'
-" " let g:syntastic_go_checkers = ['golint', 'gotype', 'govet', 'go']
-" " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" " let g:syntastic_elixir_checkers = ['elixir']
-" " let g:syntastic_enable_elixir_checker = 1
-" " let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
-" 
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" 
-" nmap <silent><Leader>ee <Esc>:Errors<CR>
 
 
 "" ctrlp
@@ -467,9 +440,10 @@ let g:elixir_autobuild = 1
 
 """ ale
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 
+let g:ale_sign_column_always = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
