@@ -3,6 +3,7 @@
 import argparse
 import random
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='genkey', description="Generate random string")
     parser.add_argument(
@@ -16,6 +17,12 @@ if __name__ == '__main__':
         default=False,
         action='store_true',
         help="use symbols in random string")
+    parser.add_argument(
+        '-m', '--human-readable',
+        dest='human_readable',
+        default=False,
+        action='store_true',
+        help="use ABCDEFGHJKLMNPQRSTUVWXYZ23456789 set")
     args = parser.parse_args()
 
     length = args.length
@@ -24,6 +31,9 @@ if __name__ == '__main__':
     digit = '0123456789'
     symbol = '!#%&+-./:=?[]_!'
 
-    source = list(lower + upper + digit + symbol) if args.with_symbols else list(lower + upper + digit)
+    if args.human_readable:
+        source = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+    else:
+        source = list(lower + upper + digit + symbol) if args.with_symbols else list(lower + upper + digit)
     key = ''.join([source[random.randint(0, len(source)-1)] for _ in range(length)])
     print(key)
