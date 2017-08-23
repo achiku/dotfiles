@@ -371,6 +371,8 @@ let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
+" disable gocode auto-build
+let g:go_gocode_autobuild = 0
 " let g:go_metalinter_autosave = 1
 " let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
 " let g:go_metalinter_command = "-t"
