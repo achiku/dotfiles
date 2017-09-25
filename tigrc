@@ -8,7 +8,7 @@ set main-view-date = custom
 set main-view-date-format = "%Y-%m-%d %H:%M"
 
 # https://github.com/jonas/tig/issues/598
-set status-show-untracked-files = yes
+# set status-show-untracked-files = yes
 
 # ステータスビューで V 押下すると、差分表示モードでコミットログ入力画面を開く
 bind status V !git commit -v

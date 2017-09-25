@@ -72,6 +72,10 @@ NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'w0rp/ale'
 
+"" uml
+NeoBundle 'scrooloose/vim-slumlord'
+NeoBundle 'aklt/plantuml-syntax'
+
 "" elixir
 NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'slashmili/alchemist.vim'
