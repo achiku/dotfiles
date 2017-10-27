@@ -459,7 +459,7 @@ let g:ale_linters = {
 \   'go': ['gometalinter'],
 \}
 
-let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint -t'
+let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint --enable=gotypex'
 let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'

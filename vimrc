@@ -63,6 +63,7 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
+NeoBundle 'upamune/esa.vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'achiku/vim-kaonashi'
 
 "" Colors
@@ -426,10 +427,10 @@ let g:go_metalinter_autosave_enabled = [
 
 augroup GolangSettings
     autocmd!
-    autocmd FileType go nmap <leader>gr <Plug>(go-run)
-    autocmd FileType go nmap <leader>gc <Plug>(go-coverage)
-    autocmd FileType go nmap <leader>gb <Plug>(go-build)
-    autocmd FileType go nmap <leader>gt <Plug>(go-test)
+    autocmd FileType go nmap <Leader>gr <Plug>(go-run)
+    autocmd FileType go nmap <Leader>gc <Plug>(go-coverage)
+    autocmd FileType go nmap <Leader>gb <Plug>(go-build)
+    autocmd FileType go nmap <Leader>gt <Plug>(go-test)
     autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
     autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
     autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
@@ -451,3 +452,7 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+
+
+""" esa
+let g:esa_team = 'kanmu'
