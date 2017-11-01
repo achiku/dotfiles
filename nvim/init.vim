@@ -166,7 +166,7 @@ nnoremap k gk
 "" tab settings
 nnoremap tt :<C-u>tabnew<CR>
 nnoremap tn gt
-nnoremap tp gr
+nnoremap tp gT
 
 
 "" = - ~ " ' ` for HTML section
