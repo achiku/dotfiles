@@ -109,5 +109,5 @@ export GIT_PROMPT_EXECUTABLE="haskell"
 source ~/.zsh/git-prompt/zshrc.sh
 
 # direnv
-export EDITOR=vim
+export EDITOR=nvim
 eval "$( direnv hook zsh )"
