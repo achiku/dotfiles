@@ -37,7 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # for golang
 export GOVERSION=1.8.3
-export GOPATH=$HOME/.go/$GOVERSION
+export GOPATH=$HOME/go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
 export GOGC=2000
 alias gp='cd $GOPATH/src/github.com/achiku/'
