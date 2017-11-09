@@ -92,7 +92,7 @@ case ${UID} in
   ;;
 *)
   PROMPT='%{$fg[red]%}[%~]%{$reset_color%} %b$(git_super_status) 
-%{$fg[red]%}≫≫%{$reset_color%} '
+%{$fg[red]%}$%{$reset_color%} '
   PROMPT2='%{${fg[red]}%}%_%%%{$reset_color%} '
   SPROMPT='%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '
   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 

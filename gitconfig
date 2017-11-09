@@ -8,7 +8,9 @@
     branch = auto
     interactive = auto
 [core]
-    editor = vim
+    editor = nvim
+    excludesfile = /Users/achiku/.gitignore_global
+    precomposeunicode = true
 [alias]
     ci = commit
     st = status
@@ -21,4 +23,13 @@
 [pull]
     rebase = true
 [http]
-    sslVerify = false
+    sslVerify = true
+[github]
+	user = achiku
+[ghq]
+    root = ~/.ghq
+    root = ~/work/achiku/
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
