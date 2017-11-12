@@ -106,8 +106,30 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 export GIT_PROMPT_EXECUTABLE="haskell"
-source ~/.zsh/git-prompt/zshrc.sh
+source ~/.zsh.d/git-prompt/zshrc.sh
 
 # direnv
 export EDITOR=nvim
 eval "$( direnv hook zsh )"
+
+# z.sh
+source ~/.zsh.d/z/z.sh
+export _Z_DATA=~/.zsh.d/z-history
+
+function peco-z-search
+{
+  which peco z > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Please install peco and z"
+    return 1
+  fi
+  local res=$(z | sort -rn | cut -c 12- | peco)
+  if [ -n "$res" ]; then
+    BUFFER+="cd $res"
+    zle accept-line
+  else
+    return 1
+  fi
+}
+zle -N peco-z-search
+bindkey '^f' peco-z-search
