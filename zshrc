@@ -69,9 +69,9 @@ compinit
 
 # zsh history
 HISTFILE=~/.zsh_history
-LISTMAX=10000
-HISTSIZE=10000
-SAVEHIST=10000
+LISTMAX=100000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
