@@ -51,7 +51,6 @@ NeoBundle 'janko-m/vim-test'
 NeoBundle 'kassio/neoterm'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fatih/vim-go'
@@ -71,6 +70,7 @@ NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'w0rp/ale'
+"" NeoBundle 'b4b4r07/vim-sqlfmt'
 
 "" uml
 NeoBundle 'scrooloose/vim-slumlord'
@@ -324,13 +324,6 @@ let test#go#gotest#options = {
 \}
 
 
-""" SQLFormatter
-vmap <silent>sf <Plug>SQLU_Formatter<CR>
-nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
-nmap <silent>scd <Plug>SQLU_GetColumnDef<CR>
-nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
-nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
-
 
 """ jedi-vim
 " jediにvimの設定を任せると'completeopt+=preview'するので
@@ -473,3 +466,22 @@ let g:ale_python_flake8_args = '--max-line-length=120'
 
 "" vim-jsx
 let g:jsx_ext_required = 0
+
+
+"" sqlfmt
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = "-r -k lower --comma_first True -"
+
+
+function! SQLfmtv() range
+  let tmp = @@
+  silent normal gvy
+  let selected = @@
+  let @@ = tmp
+  let cmd = printf("%s %s << SQL\n%s\nSQL", g:sqlfmt_command, g:sqlfmt_options, selected)
+  echo cmd
+  let lines = system(cmd)
+  echo lines
+endfunction
+
+command! -range SQLfmtv :call SQLfmtv()

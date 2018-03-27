@@ -10,6 +10,7 @@ alias ls='ls -FG'
 alias ll='ls -l'
 alias l='ls -ltr'
 alias la='ls -ltra'
+alias venv='source ./venv/bin/activate'
 
 # for custom aliases 
 if [[ -f ~/.myalias ]]; then
@@ -36,11 +37,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.8.3
+export GOVERSION=1.10
 export GOPATH=$HOME/go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
-export GOGC=2000
-alias gp='cd $GOPATH/src/github.com/achiku/'
+alias gp='cd $GOPATH/src/github.com/'
 
 # for Java
 export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
