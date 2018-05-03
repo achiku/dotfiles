@@ -54,7 +54,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+" NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+NeoBundle 'autozimu/LanguageClient-neovim'
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
@@ -286,6 +287,8 @@ let g:indent_guides_guide_size = 1
 
 "" neoterm
 let g:neoterm_size = 15
+let g:neoterm_autoscroll = 1
+let g:neoterm_default_mod = 'belowright'
 
 
 """ vim-test
@@ -361,6 +364,7 @@ let g:quickrun_config = {
 
 "" vim-go
 let g:go_fmt_command = "goimports"
+let g:go_info_mode = 'guru'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -368,23 +372,12 @@ let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
-" disable gocode auto-build
 let g:go_gocode_autobuild = 0
-" let g:go_metalinter_autosave = 1
-" let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
-" let g:go_metalinter_command = "-t"
-" gometalinter --disable-all --enable=gotype --enable=vet --enable=golint -t
-" let g:go_metalinter_autosave_enabled = [
-"       \  'golint',
-"       \  'gotype',
-"       \  'vet',
-"       \]
 
 
 augroup GolangSettings
   autocmd!
   autocmd FileType go nmap <leader>gb <Plug>(go-build)
-  " autocmd FileType go nmap <leader>gt :<C-u>GoTest<CR>
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
   autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
@@ -396,9 +389,9 @@ augroup GolangSettings
 augroup END
 
 """ deoplete-go
-let g:deoplete#sources#go#align_class = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#package_dot = 1
+" let g:deoplete#sources#go#align_class = 1
+" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" let g:deoplete#sources#go#package_dot = 1
 
 
 """ isort-vim
@@ -485,3 +478,17 @@ function! SQLfmtv() range
 endfunction
 
 command! -range SQLfmtv :call SQLfmtv()
+
+
+"" LanguageClient-neovim
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['go-langserver', '-mode', 'tcp', '-gocodecompletion'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+let g:LanguageClient_loggingLevel = 'DEBUG'
