@@ -2,7 +2,7 @@
 " neobundle settings
 " =============================
 "Python3 support
-let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/py3/bin/python3'
+let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/nvim/bin/python3'
 
 if has('vim_starting')
     set runtimepath+=~/.config/nvim/neobundle.vim/
@@ -63,8 +63,6 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
-NeoBundle 'ryanss/vim-hackernews'
-NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'hashivim/vim-terraform'
 NeoBundle 'yoppi/fluentd.vim'
 NeoBundle 'metakirby5/codi.vim'

@@ -43,7 +43,7 @@ export PATH=$GOPATH/bin:$PATH
 alias gp='cd $GOPATH/src/github.com/'
 
 # for Java
-export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
+# export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
 
 # for python virtualenv (manage python with homebrew)
 v_env_wrapper=/usr/local/bin/virtualenvwrapper.sh
@@ -64,8 +64,8 @@ export PATH=$HOME/bin:$PATH
 alias vim=nvim
 
 # zsh completion
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -u
 
 # zsh history
 HISTFILE=~/.zsh_history
@@ -105,7 +105,7 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-export GIT_PROMPT_EXECUTABLE="haskell"
+# export GIT_PROMPT_EXECUTABLE="haskell"
 source ~/.zsh.d/git-prompt/zshrc.sh
 
 # direnv

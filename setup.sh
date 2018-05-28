@@ -37,6 +37,22 @@ else
     ln -sfh ${current_dir}/tmux.conf ~/.tmux.conf
 fi
 
+if [[ -f ~/.gitconfig ]]; then
+    echo '.gitconfig is already placed at ~/.gitconfig'
+else
+    echo 'creating symlink for .gitconfig'
+    ln -sfh ${current_dir}/gitconfig ~/.gitconfig
+fi
+
+if [[ -f ~/.gitignore_global ]]; then
+    echo '.gitignore_global is already placed at ~/.gitignore_global'
+else
+    echo 'creating symlink for .gitignore_global'
+    ln -sfh ${current_dir}/gitignore_global ~/.gitignore_global
+fi
+
+
+mkdir -p ~/.config/nvim
 if [[ -f ~/.config/nvim/init.vim ]]; then
     echo 'init.vim is already placed at ~/.config/nvim/init.vim'
 else
