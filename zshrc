@@ -65,7 +65,7 @@ alias vim=nvim
 
 # zsh completion
 autoload -Uz compinit
-compinit -u
+# compinit -u
 
 # zsh history
 HISTFILE=~/.zsh_history
@@ -133,3 +133,6 @@ function peco-z-search
 }
 zle -N peco-z-search
 bindkey '^f' peco-z-search
+
+# source $HOME/venv/bin/activate
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -37,6 +37,14 @@ else
     ln -sfh ${current_dir}/tmux.conf ~/.tmux.conf
 fi
 
+if [[ -d ~/.tmux ]]; then
+    echo '.tmux is already placed at ~/.tmux'
+else
+    echo 'creating symlink for .tmux.conf'
+    ln -sfh ${current_dir}/tmux ~/.tmux
+fi
+
+
 if [[ -f ~/.gitconfig ]]; then
     echo '.gitconfig is already placed at ~/.gitconfig'
 else
