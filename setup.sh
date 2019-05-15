@@ -30,6 +30,13 @@ else
     ln -sfh ${current_dir}/zshrc ~/.zshrc
 fi
 
+if [[ -f ~/.psqlrc ]]; then
+    echo '.psqlrc is already placed at ~/.psqlrc'
+else
+    echo 'creating symlink for .psqlrc'
+    ln -sfh ${current_dir}/psqlrc ~/.psqlrc
+fi
+
 if [[ -f ~/.tmux.conf ]]; then
     echo '.tmux.conf is already placed at ~/.tmux.conf'
 else

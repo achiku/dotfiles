@@ -12,6 +12,7 @@ if has('gui_macvim')
     " ビープ音なし
     set visualbell t_vb=
     set nobackup
+    set imdisableactivate
     highlight Cursor guifg=NONE guibg=Green
     highlight CursorIM guifg=NONE guibg=White
     set noimdisableactivate

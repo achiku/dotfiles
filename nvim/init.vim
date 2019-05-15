@@ -53,7 +53,7 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'fatih/vim-go'
+NeoBundle 'mururu/vim-go', 'sqlfmt'
 NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
@@ -69,6 +69,7 @@ NeoBundle 'metakirby5/codi.vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'w0rp/ale'
 "" NeoBundle 'b4b4r07/vim-sqlfmt'
+NeoBundle 'leafgarland/typescript-vim'
 
 "" uml
 NeoBundle 'scrooloose/vim-slumlord'
@@ -448,10 +449,12 @@ let g:ale_set_quickfix = 1
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'python': ['flake8'],
-\   'go': ['gometalinter'],
+\   'go': ['gopls'],
+\   'typescript': ['tslint'],
 \}
 
-let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint --tests'
+"" let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint --tests'
+"" let g:ale_go_golangci_lint_options = '-D -E=errcheck -E=goimports -E=golint -E=govet -E=typecheck -E=unused'
 let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -460,7 +463,7 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_flake8_args = '--max-line-length=120'
+let g:ale_python_flake8_options = '--max-line-length=120'
 
 
 "" vim-jsx

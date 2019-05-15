@@ -22,24 +22,25 @@ export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
 export CLOUDSDK_COMPUTE_REGION=asia-east1
 
 # path for homebrew and pipsi (this must come to the very begining of PATH)
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/venv/bin:$PATH
 # export HOMEBREW_VERBOSE=true
 
 # for completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # for ruby
-# export PATH=$HOME/.rbenv/shims:$PATH
-# eval "$(rbenv init -)"
+export PATH=$HOME/.rbenv/shims:$PATH
+eval "$(rbenv init -)"
 
 # for node.js nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.10
+export GOVERSION=1.12.5
 export GOPATH=$HOME/go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
+# export GO111MODULE=on
 alias gp='cd $GOPATH/src/github.com/'
 
 # for Java
@@ -53,6 +54,8 @@ if [ -r $v_env_wrapper ]; then
 fi
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export VIRTUALENV_USE_DISTRIBUTE=true
+export PYTHONUSERBASE=$HOME/venv
+export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # for postgresql
 export PGDATA=/usr/local/var/postgres
@@ -72,8 +75,8 @@ HISTFILE=~/.zsh_history
 LISTMAX=100000
 HISTSIZE=100000
 SAVEHIST=100000
-setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
+setopt hist_ignore_dups
+setopt share_history
 
 setopt auto_pushd
 setopt list_packed
@@ -136,3 +139,9 @@ bindkey '^f' peco-z-search
 
 # source $HOME/venv/bin/activate
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/achiku/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/achiku/tmp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/achiku/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/achiku/tmp/google-cloud-sdk/completion.zsh.inc'; fi
