@@ -53,7 +53,7 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'mururu/vim-go', 'sqlfmt'
+NeoBundle 'fatih/vim-go'
 NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
