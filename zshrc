@@ -22,7 +22,7 @@ export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
 export CLOUDSDK_COMPUTE_REGION=asia-east1
 
 # path for homebrew and pipsi (this must come to the very begining of PATH)
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/venv/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # export HOMEBREW_VERBOSE=true
 
 # for completion
@@ -54,8 +54,8 @@ if [ -r $v_env_wrapper ]; then
 fi
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export VIRTUALENV_USE_DISTRIBUTE=true
-export PYTHONUSERBASE=$HOME/venv
-export PATH=$PYTHONUSERBASE/bin:$PATH
+# export PYTHONUSERBASE=$HOME/venv
+# export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # for postgresql
 export PGDATA=/usr/local/var/postgres

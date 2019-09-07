@@ -362,6 +362,8 @@ let g:quickrun_config = {
 
 "" vim-go
 let g:go_fmt_command = "goimports"
+let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1

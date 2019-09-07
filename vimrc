@@ -37,7 +37,7 @@ NeoBundle 'cocopon/lightline-hybrid.vim'
 NeoBundle 'vim-scripts/dbext.vim', '18.0'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'fisadev/vim-isort'
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -65,6 +65,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'upamune/esa.vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'achiku/vim-kaonashi'
+NeoBundle 'achiku/memolist.vim'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'
@@ -112,6 +113,7 @@ autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype hql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 set nobackup
 set nowritebackup
@@ -159,6 +161,9 @@ nnoremap <Space>% :<C-u>source $MYVIMRC<CR>
 "" lightline
 source ~/.vim/etc/lightline.vim
 
+"" netrw
+let g:netrw_sort_direction = 'reverse'
+let g:netrw_fastbrowse = 2
 
 "" synatastic
 " let g:syntastic_debug = 1
@@ -228,9 +233,30 @@ let QFixHowm_Template = [
   \"# %TAG%",
   \""
   \]
-let QFixHowm_SaveTime = 1
+let QFixHowm_SaveTime = 2
+let QFixHowm_RecentMode = 2
 let QFixHowm_Autoformat = 0
 let calendar_jp = 1
+
+"" memolist
+
+
+nnoremap <Space>c :<C-u>MemoNew<CR>
+nnoremap <Space>l :<C-u>MemoList<CR>
+" nnoremap <Leader>mn  :MemoNew<CR>
+" nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
+
+let g:memolist_path = "~/Documents/memolist/achiku"
+let g:memolist_memo_suffix = "md"
+" let g:memolist_vimfiler = 1
+
+" date format (default %Y-%m-%d %H:%M)
+" let g:memolist_memo_date = "%Y-%m-%d-%H:%M:%S"
+let g:memolist_template_dir_path = "~/Documents/memolist"
+
+
+" let g:memolist_ex_cmd = 'CtrlP'
 
 
 "" tagbar
