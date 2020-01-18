@@ -36,7 +36,7 @@ NeoBundle 'Shougo/deoplete.nvim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/lightline-hybrid.vim'
 NeoBundle 'vim-scripts/dbext.vim', '18.0'
-NeoBundle 'fisadev/vim-isort'
+NeoBundle 'jmcantrell/vim-virtualenv'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -58,8 +58,6 @@ NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'miyakogi/vim-virtualenv'
-NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'kannokanno/previm'
@@ -132,7 +130,6 @@ autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype jade setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jinja setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype j2 setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -405,6 +402,7 @@ let g:deoplete#sources#go#package_dot = 1
 
 """ isort-vim
 let g:vim_isort_map = '<C-i>'
+let g:vim_isort_python_version = 'python3'
 
 
 """ previm
@@ -421,9 +419,16 @@ augroup END
 """ deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_complete_delay = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
 
-inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
 
 
 """ vim2hs
@@ -441,23 +446,26 @@ let g:elixir_autobuild = 1
 
 """ ale
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_insert_leave = 0
 
-let g:ale_sign_column_always = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_sign_column_always = 1
+
+let g:ale_fixers = {
+\   'python': ['isort'],
+\}
 
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
-\   'python': ['flake8'],
-\   'go': ['gopls'],
+\   'python': ['flake8', 'isort'],
+\   'go': ['gopls', 'golint'],
 \   'typescript': ['tslint'],
 \}
+let g:ale_python_flake8_options = '--max-line-length=120'
 
-"" let g:ale_go_gometalinter_options = '--vendored-linters --disable-all --enable=gotype --enable=vet --enable=golint --tests'
-"" let g:ale_go_golangci_lint_options = '-D -E=errcheck -E=goimports -E=golint -E=govet -E=typecheck -E=unused'
-let g:ale_open_list = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
@@ -465,7 +473,6 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_flake8_options = '--max-line-length=120'
 
 
 "" vim-jsx

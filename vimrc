@@ -66,6 +66,8 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'upamune/esa.vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'achiku/vim-kaonashi'
 NeoBundle 'achiku/memolist.vim'
+NeoBundle 'arecarn/vim-crunch'
+NeoBundle 'arecarn/vim-selection'
 
 "" Colors
 NeoBundle 'w0ng/vim-hybrid'

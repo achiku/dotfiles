@@ -21,7 +21,7 @@ fi
 export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
 export CLOUDSDK_COMPUTE_REGION=asia-east1
 
-# path for homebrew and pipsi (this must come to the very begining of PATH)
+# path for homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # export HOMEBREW_VERBOSE=true
 
@@ -40,22 +40,12 @@ export NVM_DIR="$HOME/.nvm"
 export GOVERSION=1.12.5
 export GOPATH=$HOME/go/$GOVERSION
 export PATH=$GOPATH/bin:$PATH
-# export GO111MODULE=on
-alias gp='cd $GOPATH/src/github.com/'
 
 # for Java
 # export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
 
-# for python virtualenv (manage python with homebrew)
-v_env_wrapper=/usr/local/bin/virtualenvwrapper.sh
-if [ -r $v_env_wrapper ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source $v_env_wrapper
-fi
+# for pip
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-export VIRTUALENV_USE_DISTRIBUTE=true
-# export PYTHONUSERBASE=$HOME/venv
-# export PATH=$PYTHONUSERBASE/bin:$PATH
 
 # for postgresql
 export PGDATA=/usr/local/var/postgres
@@ -136,9 +126,6 @@ function peco-z-search
 }
 zle -N peco-z-search
 bindkey '^f' peco-z-search
-
-# source $HOME/venv/bin/activate
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chiku/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiku/tmp/google-cloud-sdk/path.zsh.inc'; fi
