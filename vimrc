@@ -115,7 +115,7 @@ autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype hql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 set nobackup
 set nowritebackup
@@ -484,3 +484,8 @@ augroup END
 
 """ esa
 let g:esa_team = 'kanmu'
+
+
+""" vim-crunch
+
+let g:crunch_precision = 10

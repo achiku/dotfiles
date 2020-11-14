@@ -53,8 +53,8 @@ NeoBundle 'Glench/Vim-Jinja2-Syntax'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'Raimondi/delimitMate'
+" NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'fatih/vim-go'
-NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
@@ -310,6 +310,8 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+let test#python#runner = 'djangotest'
+
 let test#python#pytest#options = {
   \ 'nearest': '-v',
   \ 'file':    '-v',
@@ -358,27 +360,13 @@ let g:quickrun_config = {
 
 
 "" vim-go
-let g:go_fmt_command = "goimports"
 let g:go_def_mode='gopls'
-" let g:go_info_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_term_enabled = 1
-let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
-let g:go_gocode_autobuild = 0
-" let g:go_metalinter_autosave = 1
-" let g:go_metalinter_command = "--enable=gotype --enable=vet --enable=golint -t"
-" let g:go_metalinter_command = "-t"
-" gometalinter --disable-all --enable=gotype --enable=vet --enable=golint -t
-" let g:go_metalinter_autosave_enabled = [
-"       \  'golint',
-"       \  'gotype',
-"       \  'vet',
-"       \]
-
 
 augroup GolangSettings
   autocmd!
@@ -395,15 +383,9 @@ augroup GolangSettings
 augroup END
 
 """ deoplete-go
-let g:deoplete#sources#go#align_class = 1
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#package_dot = 1
-
-
-""" isort-vim
-let g:vim_isort_map = '<C-i>'
-let g:vim_isort_python_version = 'python3'
-
+" let g:deoplete#sources#go#align_class = 1
+" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" let g:deoplete#sources#go#package_dot = 1
 
 """ previm
 let g:previm_show_header = 0
@@ -461,9 +443,9 @@ let g:ale_fixers = {
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'python': ['flake8', 'isort'],
-\   'go': ['gopls', 'golint'],
 \   'typescript': ['tslint'],
 \}
+
 let g:ale_python_flake8_options = '--max-line-length=120'
 
 let g:ale_sign_error = '✗'
