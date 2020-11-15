@@ -79,17 +79,11 @@ case ${UID} in
 0)
   PROMPT="%{${fg[red]}%}%/#%{${reset_color}%}#  "
   PROMPT2="%{${fg[red]}%}%_#%{${reset_color}%}# "
-  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}#} "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
   ;;
 *)
   PROMPT='%{$fg[red]%}[%~]%{$reset_color%} %b$(git_super_status) 
 %{$fg[red]%}$%{$reset_color%} '
   PROMPT2='%{${fg[red]}%}%_%%%{$reset_color%} '
-  SPROMPT='%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} '
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT='%{${fg[white]}%}${HOST%%.*} ${PROMPT}'
   ;;
 esac
 
@@ -98,12 +92,8 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-# export GIT_PROMPT_EXECUTABLE="haskell"
+export GIT_PROMPT_EXECUTABLE="haskell"
 source ~/.zsh.d/git-prompt/zshrc.sh
-
-# direnv
-# export EDITOR=nvim
-# eval "$( direnv hook zsh )"
 
 # z.sh
 source ~/.zsh.d/z/z.sh
@@ -126,9 +116,3 @@ function peco-z-search
 }
 zle -N peco-z-search
 bindkey '^f' peco-z-search
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chiku/tmp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiku/tmp/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/chiku/tmp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiku/tmp/google-cloud-sdk/completion.zsh.inc'; fi
