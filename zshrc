@@ -102,8 +102,8 @@ zle -N history-beginning-search-forward-end history-search-end
 source ~/.zsh.d/git-prompt/zshrc.sh
 
 # direnv
-export EDITOR=nvim
-eval "$( direnv hook zsh )"
+# export EDITOR=nvim
+# eval "$( direnv hook zsh )"
 
 # z.sh
 source ~/.zsh.d/z/z.sh
