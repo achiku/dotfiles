@@ -2,17 +2,15 @@
 " neobundle settings
 " =============================
 "Python3 support
-let g:python3_host_prog = expand('$HOME') . '/.virtualenvs/nvim/bin/python3'
+let g:python3_host_prog = expand('$HOME') . '/venv/bin/python'
 
 if has('vim_starting')
-    set runtimepath+=~/.config/nvim/neobundle.vim/
-    if filereadable('.local_vimrc')
-        let s:plugin_dev_dir = getcwd()
-        execute 'set runtimepath+=' . s:plugin_dev_dir
-    endif
+  " Required:
+  set runtimepath+=/Users/chiku/.config/nvim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.config/nvim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -400,14 +398,14 @@ augroup END
 
 """ deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_delay = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#auto_complete_delay = 1
+" let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#enable_camel_case = 0
+" let g:deoplete#enable_ignore_case = 0
+" let g:deoplete#enable_refresh_always = 0
+" let g:deoplete#file#enable_buffer_path = 1
+" let g:deoplete#max_list = 10000
 
 " inoremap <expr><C-h> deolete#mappings#smart_close_popup()."\<C-h>"
 " inoremap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
