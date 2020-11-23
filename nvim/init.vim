@@ -66,6 +66,7 @@ NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'w0rp/ale'
 "" NeoBundle 'b4b4r07/vim-sqlfmt'
 NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'peitalin/vim-jsx-typescript'
 
 "" uml
 NeoBundle 'scrooloose/vim-slumlord'
@@ -126,6 +127,7 @@ set expandtab
 
 autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype tsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
@@ -438,10 +440,11 @@ let g:ale_fixers = {
 \   'python': ['isort'],
 \}
 
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \   'python': ['flake8', 'isort'],
-\   'typescript': ['tslint'],
+\   'typescript': ['eslint'],
 \}
 
 let g:ale_python_flake8_options = '--max-line-length=120'
@@ -458,21 +461,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "" vim-jsx
 let g:jsx_ext_required = 0
 
-
 "" sqlfmt
 let g:sqlfmt_command = "sqlformat"
 let g:sqlfmt_options = "-r -k lower --comma_first True -"
-
-
-function! SQLfmtv() range
-  let tmp = @@
-  silent normal gvy
-  let selected = @@
-  let @@ = tmp
-  let cmd = printf("%s %s << SQL\n%s\nSQL", g:sqlfmt_command, g:sqlfmt_options, selected)
-  echo cmd
-  let lines = system(cmd)
-  echo lines
-endfunction
-
-command! -range SQLfmtv :call SQLfmtv()
