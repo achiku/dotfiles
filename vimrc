@@ -20,6 +20,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " =============================
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/lightline-hybrid.vim'
+NeoBundle 'Raimondi/delimitMate'
 " NeoBundle 'fisadev/vim-isort'
 " NeoBundle 'scrooloose/nerdtree'
 " NeoBundle 'majutsushi/tagbar'

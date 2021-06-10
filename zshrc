@@ -37,9 +37,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOVERSION=1.14.4
-export GOROOT=$HOME/sdk/go$GOVERSION
-export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
+# export GOVERSION=1.14.4
+# export GOROOT=$HOME/sdk/go$GOVERSION
+# export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$HOME/go/bin:$PATH
+
 
 # for Java
 # export JAVA_HOME=$( /usr/libexec/java_home -v 1.8 )
@@ -47,7 +50,8 @@ export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
 # for pip
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
-# for postgresql
+# for PostgreSQL
+export PATH=/usr/local/Cellar/postgresql@12/12.7/bin:$PATH
 export PGDATA=/usr/local/var/postgres
 
 # for custom tools
@@ -116,3 +120,9 @@ function peco-z-search
 zle -N peco-z-search
 bindkey '^f' peco-z-search
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/chiku/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiku/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/chiku/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiku/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
