@@ -1,115 +1,87 @@
 " =============================
-" neobundle settings
+" vim-plug settings
 " =============================
+"
+call plug#begin('~/.config/nvim/plugged')
+
 "Python3 support
 let g:python3_host_prog = expand('$HOME') . '/venv/bin/python'
-
-if has('vim_starting')
-  " Required:
-  set runtimepath+=/Users/chiku/.config/nvim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.config/nvim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
 
 " =============================
 " plugins
 " =============================
-NeoBundle 'Shougo/deoplete.nvim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'cocopon/lightline-hybrid.vim'
-NeoBundle 'vim-scripts/dbext.vim', '18.0'
-NeoBundle 'jmcantrell/vim-virtualenv'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'nixprime/cpsm'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'autowitch/hive.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'janko-m/vim-test'
-NeoBundle 'kassio/neoterm'
-NeoBundle 'Glench/Vim-Jinja2-Syntax'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'Raimondi/delimitMate'
-" NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-NeoBundle 'fatih/vim-go'
-NeoBundle 'pearofducks/ansible-vim'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'cespare/vim-toml'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'hashivim/vim-terraform'
-NeoBundle 'yoppi/fluentd.vim'
-NeoBundle 'metakirby5/codi.vim'
-NeoBundle 'tell-k/vim-autopep8'
-NeoBundle 'w0rp/ale'
-"" NeoBundle 'b4b4r07/vim-sqlfmt'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'peitalin/vim-jsx-typescript'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+"Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'itchyny/lightline.vim'
+Plug 'cocopon/lightline-hybrid.vim'
+" Plug 'vim-scripts/dbext.vim', '18.0'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nixprime/cpsm'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'groenewege/vim-less'
+Plug 'thinca/vim-quickrun'
+" Plug 'autowitch/hive.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'janko-m/vim-test'
+Plug 'kassio/neoterm'
+"" Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'kana/vim-fakeclip'
+Plug 'Raimondi/delimitMate'
+" Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+Plug 'fatih/vim-go'
+" Plug 'pearofducks/ansible-vim'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'hynek/vim-python-pep8-indent'
+" Plug 'cespare/vim-toml'
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'kannokanno/previm'
+" Plug 'metakirby5/codi.vim'
+" Plug 'tell-k/vim-autopep8'
+Plug 'w0rp/ale'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+"" Plug 'b4b4r07/vim-sqlfmt'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 "" uml
-NeoBundle 'scrooloose/vim-slumlord'
-NeoBundle 'aklt/plantuml-syntax'
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
 
 "" elixir
-NeoBundle 'elixir-lang/vim-elixir'
-NeoBundle 'slashmili/alchemist.vim'
-" NeoBundle 'awetzel/elixir.nvim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+" Plug 'awetzel/elixir.nvim'
 
 "" haskell
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'dag/vim2hs'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
+Plug 'dag/vim2hs'
 
-"" javascript + react
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'MaxMEllon/vim-jsx-pretty'
-
+"" javascript/typescript + react
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 
 "" Colors
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'dylanaraps/crayon'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle '29decibel/codeschool-vim-theme'
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'roosta/srcery'
-NeoBundle 'jacoborus/tender'
-NeoBundle 'mhartington/oceanic-next'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'dylanaraps/crayon'
+" Plug 'nanotech/jellybeans.vim'
+" Plug '29decibel/codeschool-vim-theme'
+Plug 'morhetz/gruvbox'
+" Plug 'roosta/srcery'
+" Plug 'jacoborus/tender'
+" Plug 'mhartington/oceanic-next'
 
 
-call neobundle#end()
-filetype plugin indent on     " Required!
-
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
-" Installation check.
-NeoBundleCheck
-
+call plug#end()
 
 "=================================
 " vim settings
@@ -127,17 +99,16 @@ set expandtab
 
 autocmd Filetype yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype vim setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype tsx setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype jinja setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype j2 setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype coffee setlocal tabstop=2 softtabstop=2 shiftwidth=2
-autocmd Filetype hql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 set nobackup
 set nowritebackup
@@ -291,12 +262,12 @@ let g:neoterm_default_mod = 'belowright'
 "  botright new | call termopen(a:cmd)
 "endfunction
 "
-"let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
+" let g:test#custom_strategies = {'terminal_split': function('SplitStrategy')}
 " let g:test#strategy = 'terminal_split'
 let g:test#strategy = 'neoterm'
 " let g:test#strategy = 'asyncrun'
 " let g:test#strategy = 'neovim'
-let g:test#preserve_screen = 1
+let g:test#preserve_screen = 0
 
 " for pytest-django
 " nmap <silent> <leader>pf :TestNearest --reuse-db<CR>
@@ -310,7 +281,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
-let test#python#runner = 'djangotest'
+" let test#python#runner = 'djangotest'
 
 let test#python#pytest#options = {
   \ 'nearest': '-v',
@@ -328,15 +299,15 @@ let test#go#gotest#options = {
 """ jedi-vim
 " jediにvimの設定を任せると'completeopt+=preview'するので
 " 自動設定機能をOFFにし手動で設定を行う
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#force_py_version = 3
-let g:jedi#popup_select_first = 0
+" autocmd FileType python setlocal completeopt-=preview
+" let g:jedi#force_py_version = 3
+" let g:jedi#popup_select_first = 0
 " quickrunと被るため大文字に変更
-let g:jedi#rename_command = '<Leader>R'
+" let g:jedi#rename_command = '<Leader>R'
 " 補完の最初の項目が選択された状態だと使いにくいためオフにする
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
-autocmd FileType python setlocal omnifunc=jedi#completions
+" let g:jedi#popup_select_first = 0
+" let g:jedi#popup_on_dot = 0
+" autocmd FileType python setlocal omnifunc=jedi#completions
 
 """ vim-virtualenv
 let g:virtualenv_auto_activate = 1
@@ -443,7 +414,7 @@ let g:ale_fixers = {
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
-\   'python': ['flake8', 'isort'],
+\   'python': ['flake8', 'isort', 'mypy'],
 \   'typescript': ['eslint'],
 \}
 
@@ -464,3 +435,7 @@ let g:jsx_ext_required = 0
 "" sqlfmt
 let g:sqlfmt_command = "sqlformat"
 let g:sqlfmt_options = "-r -k lower --comma_first True -"
+
+
+"" vim-lsp
+let g:lsp_diagnostics_enabled = 0
