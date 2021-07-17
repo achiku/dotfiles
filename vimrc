@@ -1,59 +1,43 @@
 " =============================
-" neobundle settings
+" vim-plug settings
 " =============================
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+"
+call plug#begin('~/.vim/plugged')
 
-" Required:
-set runtimepath+=/Users/chiku/.vim/bundle/neobundle.vim/
-
-" Required:
-call neobundle#begin(expand('/Users/chiku/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+"Python3 support
+let g:python3_host_prog = expand('$HOME') . '/venv/bin/python'
 
 " =============================
 " plugins
 " =============================
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'cocopon/lightline-hybrid.vim'
-NeoBundle 'Raimondi/delimitMate'
-" NeoBundle 'fisadev/vim-isort'
-" NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'kien/ctrlp.vim'
-" NeoBundle 'thinca/vim-quickrun'
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
-" NeoBundle 'Shougo/neocomplete'
-NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'miyakogi/vim-virtualenv'
-" NeoBundle 'cespare/vim-toml'
-NeoBundle 'achiku/memolist.vim'
-NeoBundle 'arecarn/vim-crunch'
-" NeoBundle 'arecarn/vim-selection'
+Plug 'itchyny/lightline.vim'
+Plug 'cocopon/lightline-hybrid.vim'
+Plug 'Raimondi/delimitMate'
+" Plug 'fisadev/vim-isort'
+" Plug 'scrooloose/nerdtree'
+" Plug 'majutsushi/tagbar'
+" Plug 'kien/ctrlp.vim'
+" Plug 'thinca/vim-quickrun'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neocomplete'
+" Plug 'fuenor/qfixhowm'
+Plug 'kana/vim-fakeclip'
+Plug 'miyakogi/vim-virtualenv'
+" Plug 'cespare/vim-toml'
+Plug 'achiku/memolist.vim'
+Plug 'arecarn/vim-crunch'
+" Plug 'arecarn/vim-selection'
 
 "" Colors
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'dylanaraps/crayon'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle '29decibel/codeschool-vim-theme'
-NeoBundle 'rhysd/vim-color-spring-night'
+" Plug 'w0ng/vim-hybrid'
+" Plug 'dylanaraps/crayon'
+Plug 'nanotech/jellybeans.vim'
+" Plug '29decibel/codeschool-vim-theme'
+" Plug 'rhysd/vim-color-spring-night'
 
 
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+call plug#end()
 
 "=================================
 " vim settings
