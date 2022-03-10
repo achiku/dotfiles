@@ -40,8 +40,8 @@ export NVM_DIR="$HOME/.nvm"
 # export GOVERSION=1.14.4
 # export GOROOT=$HOME/sdk/go$GOVERSION
 # export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
-export GOPATH=$HOME/go
-export PATH=$HOME/go/bin:$PATH
+export GOPATH=$HOME/sdk/go1.17.4
+export PATH=$GOPATH/bin:$PATH
 
 
 # for Java
@@ -78,29 +78,18 @@ autoload colors
 colors
 autoload zed
 
-case ${UID} in
-0)
-  PROMPT="%{${fg[red]}%}%/#%{${reset_color}%}#  "
-  PROMPT2="%{${fg[red]}%}%_#%{${reset_color}%}# "
-  ;;
-*)
-  PROMPT='%{$fg[red]%}[%~]%{$reset_color%} %b$(git_super_status) 
-%{$fg[red]%}$%{$reset_color%} '
-  PROMPT2='%{${fg[red]}%}%_%%%{$reset_color%} '
-  ;;
-esac
 
 # zsh search command
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
-export GIT_PROMPT_EXECUTABLE="haskell"
-source ~/.zsh.d/git-prompt/zshrc.sh
+source ~/.zsh.d/git-prompt.zsh/git-prompt.zsh
+source ~/.zsh.d/git-prompt.zsh/achiku.zsh
 
 # z.sh
-source ~/.zsh.d/z/z.sh
-export _Z_DATA=~/.zsh.d/z-history
+# source ~/.zsh.d/z/z.sh
+# export _Z_DATA=~/.zsh.d/z-history
 
 function peco-z-search
 {

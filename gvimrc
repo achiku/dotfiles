@@ -2,7 +2,7 @@ if has('gui_macvim')
     syntax on
     colorscheme jellybeans
     set noundofile
-    set transparency=10
+    " set transparency=10
     set antialias
     set guifont=Monaco:h14
     set columns=120
