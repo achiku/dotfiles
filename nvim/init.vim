@@ -13,7 +13,6 @@ let g:python3_host_prog = expand('$HOME') . '/venv/bin/python'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/lightline-hybrid.vim'
-" Plug 'vim-scripts/dbext.vim', '18.0'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -31,11 +30,13 @@ Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 Plug 'tell-k/vim-autopep8'
 Plug 'w0rp/ale'
-Plug 'tpope/vim-fugitive'
 
-"" github
-Plug 'tyru/open-browser.vim'
-Plug 'tyru/open-browser-github.vim'
+"" git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+"" sql
+" Plug 'vim-scripts/dbext.vim', '18.0'
 
 "" uml
 " Plug 'scrooloose/vim-slumlord'

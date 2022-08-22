@@ -40,7 +40,7 @@ export NVM_DIR="$HOME/.nvm"
 # export GOVERSION=1.14.4
 # export GOROOT=$HOME/sdk/go$GOVERSION
 # export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
-export GOPATH=$HOME/sdk/go1.17.4
+export GOPATH=$HOME/sdk/go1.19
 export PATH=$GOPATH/bin:$PATH
 
 
@@ -51,7 +51,7 @@ export PATH=$GOPATH/bin:$PATH
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # for PostgreSQL
-export PATH=/usr/local/Cellar/postgresql@12/12.7/bin:$PATH
+export PATH=/usr/local/Cellar/postgresql@12/12.10_1/bin:$PATH
 export PGDATA=/usr/local/var/postgres
 
 # for custom tools
