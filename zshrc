@@ -22,8 +22,12 @@ export CLOUDSDK_COMPUTE_ZONE=asia-east1-c
 export CLOUDSDK_COMPUTE_REGION=asia-east1
 
 # path for homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# export HOMEBREW_VERBOSE=true
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 # for completion
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -37,9 +41,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-# export GOVERSION=1.14.4
-# export GOROOT=$HOME/sdk/go$GOVERSION
-# export PATH=$HOME/sdk/go$GOVERSION/bin:$PATH
 export GOPATH=$HOME/sdk/go1.19
 export PATH=$GOPATH/bin:$PATH
 
@@ -51,8 +52,8 @@ export PATH=$GOPATH/bin:$PATH
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 # for PostgreSQL
-export PATH=/usr/local/Cellar/postgresql@12/12.10_1/bin:$PATH
-export PGDATA=/usr/local/var/postgres
+export PATH=/opt/homebrew/Cellar/postgresql@12/12.12/bin:$PATH
+export PGDATA=/opt/homebrew/var/postgresql@12
 
 # for custom tools
 export PATH=$HOME/bin:$PATH
