@@ -30,6 +30,10 @@ Plug 'fatih/vim-go'
 Plug 'cespare/vim-toml'
 Plug 'tell-k/vim-autopep8'
 Plug 'w0rp/ale'
+Plug 'google/vim-jsonnet'
+
+"" json
+Plug 'elzr/vim-json'
 
 "" git
 Plug 'tpope/vim-fugitive'
@@ -55,7 +59,7 @@ Plug 'tpope/vim-rhubarb'
 "" javascript/typescript + react
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
-" Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'MaxMEllon/vim-jsx-pretty'
 " Plug 'HerringtonDarkholme/yats.vim'
 
 "" Colors
@@ -67,6 +71,9 @@ Plug 'morhetz/gruvbox'
 " Plug 'roosta/srcery'
 " Plug 'jacoborus/tender'
 " Plug 'mhartington/oceanic-next'
+
+"" hashi corp
+Plug 'jvirtanen/vim-hcl'
 
 call plug#end()
 
@@ -138,9 +145,8 @@ source ~/.config/nvim/etc/lightline.vim
 
 "" ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" neovimにはまだmatchfuzzyがない
 " let g:ctrlp_match_func = {'match': 'ctrlp_matchfuzzy#matcher'}
- let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 set wildignore+=**/tmp/,*.so,*.swp,*.zip,*.pyc,htmlcov,__pycache__
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|htmlcov|node_modules|DS_Store|venv)$',
@@ -162,7 +168,7 @@ let g:ctrlp_mruf_max = 10000 " MRUの最大記録数
 let g:ctrlp_highlight_match = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
 let g:ctrlp_open_new_file = 1 " 新規ファイル作成時にタブで開く
 let g:ctrlp_open_multi = '10t' " 複数ファイルを開く時にタブで最大10まで開く
-
+ 
 nnoremap s <Nop>
 nnoremap sa :<C-u>CtrlP<Space>
 nnoremap sb :<C-u>CtrlPBuffer<CR>
@@ -174,6 +180,8 @@ nnoremap sq :<C-u>CtrlPQuickfix<CR>
 nnoremap ss :<C-u>CtrlPMixed<CR>
 nnoremap st :<C-u>CtrlPTag<CR>
 
+"" vim-json
+let g:vim_json_syntax_conceal = 0
 
 "" tagbar
 nnoremap <F9> :TagbarToggle<CR>
@@ -338,7 +346,7 @@ let g:ale_fixers = {
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
-\   'python': ['flake8', 'isort', 'mypy'],
+\   'python': ['flake8', 'ruff', 'isort', 'mypy'],
 \   'typescript': ['eslint'],
 \   'go': ['gopls'],
 \}

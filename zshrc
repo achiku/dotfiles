@@ -41,8 +41,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # for golang
-export GOPATH=$HOME/sdk/go1.19
-export PATH=$GOPATH/bin:$PATH
+export GOROOT=$HOME/sdk/go1.22.0
+export GOBIN=$GOROOT/bin
+export PATH=$GOBIN:$PATH
 
 
 # for Java

@@ -98,4 +98,4 @@ let g:memolist_memo_suffix = "md"
 let g:memolist_template_dir_path = "~/Documents/memolist"
 
 """ vim-crunch
-let g:crunch_precision = 10
+let g:crunch_precision = 20
