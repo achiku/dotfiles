@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Go Test for Function",
+      "type": "shell",
+      "command": "docker compose exec b2b-bnpl-api go test -v -p 1 -run ^${selectedText}$ ./${relativeFileDirname}",
+      "problemMatcher": [],
+      "options": {
+          "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}

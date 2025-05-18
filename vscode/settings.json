@@ -1,0 +1,32 @@
+{
+    "files.autoGuessEncoding": true,
+    "workbench.settings.applyToAllProfiles": [
+        "files.autoGuessEncoding"
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "editor.minimap.enabled": false,
+    "terminal.integrated.fontSize": 13,
+    "gopls": {
+        "formatting.gofumpt": true
+    },
+    "workbench.startupEditor": "none",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "print.folder.fileNames": true,
+    "print.folder.include": [],
+    "print.folder.exclude": [
+        "{bin,obj,out}",
+        "node_modules",
+        "data",
+        "**/*.{bin,exe,dll,hex,pdb,pdf,pfx,png,jpg,gif,bmp,suo,design}"
+    ],
+    "print.folder.maxLines": 1200,
+    "print.folder.maxFiles": 30,
+    "print.folder.includeFileList": false,
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+    "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+    "vim.autoSwitchInputMethod.defaultIM": "com.google.inputmethod.Japanese.Roman",
+    "editor.fontFamily": "Monaco",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "editor.fontSize": 13,
+}

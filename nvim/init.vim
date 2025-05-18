@@ -60,6 +60,7 @@ Plug 'tpope/vim-rhubarb'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'prisma/vim-prisma'
 " Plug 'HerringtonDarkholme/yats.vim'
 
 "" Colors
