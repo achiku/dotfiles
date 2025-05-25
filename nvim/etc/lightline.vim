@@ -14,8 +14,8 @@ let g:lightline = {
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': '', 'right': '⮂' },
+      \ 'subseparator': { 'left': '', 'right': '⮃' }
       \ }
 
 function! MyModified()
