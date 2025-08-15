@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+
+import sys
+import argparse
+from datetime import datetime, timedelta
+
+def is_japanese_holiday(date):
+    """Check if a date is a Japanese national holiday."""
+    year = date.year
+    month = date.month
+    day = date.day
+    
+    # Fixed holidays
+    fixed_holidays = {
+        (1, 1): "New Year's Day",
+        (2, 11): "National Foundation Day", 
+        (4, 29): "Showa Day",
+        (5, 3): "Constitution Memorial Day",
+        (5, 4): "Greenery Day",
+        (5, 5): "Children's Day",
+        (8, 11): "Mountain Day",
+        (11, 3): "Culture Day",
+        (11, 23): "Labour Thanksgiving Day",
+        (12, 23): "Emperor's Birthday"
+    }
+    
+    if (month, day) in fixed_holidays:
+        return True
+    
+    # Coming of Age Day (2nd Monday in January)
+    if month == 1:
+        first_monday = 1 + (7 - datetime(year, 1, 1).weekday()) % 7
+        if first_monday == 1:
+            first_monday = 8
+        second_monday = first_monday + 7
+        if day == second_monday:
+            return True
+    
+    # Marine Day (3rd Monday in July, except 2020/2021)
+    if month == 7 and year not in [2020, 2021]:
+        first_monday = 1 + (7 - datetime(year, 7, 1).weekday()) % 7
+        if first_monday == 1:
+            first_monday = 8
+        third_monday = first_monday + 14
+        if day == third_monday:
+            return True
+    
+    # Respect for the Aged Day (3rd Monday in September)
+    if month == 9:
+        first_monday = 1 + (7 - datetime(year, 9, 1).weekday()) % 7
+        if first_monday == 1:
+            first_monday = 8
+        third_monday = first_monday + 14
+        if day == third_monday:
+            return True
+    
+    # Health and Sports Day (2nd Monday in October)
+    if month == 10:
+        first_monday = 1 + (7 - datetime(year, 10, 1).weekday()) % 7
+        if first_monday == 1:
+            first_monday = 8
+        second_monday = first_monday + 7
+        if day == second_monday:
+            return True
+    
+    # Vernal Equinox Day (around March 20-21)
+    if month == 3:
+        equinox_day = int(20.8431 + 0.242194 * (year - 1851) - int((year - 1851) / 4))
+        if day == equinox_day:
+            return True
+    
+    # Autumnal Equinox Day (around September 22-23)
+    if month == 9:
+        equinox_day = int(23.2488 + 0.242194 * (year - 1851) - int((year - 1851) / 4))
+        if day == equinox_day:
+            return True
+    
+    return False
+
+def parse_date(date_str):
+    """Parse date string in YYYY-MM-DD format."""
+    try:
+        return datetime.strptime(date_str, '%Y-%m-%d')
+    except ValueError:
+        raise ValueError(f"Invalid date format: {date_str}. Use YYYY-MM-DD format.")
+
+def count_business_days(start_date, end_date, include_holidays=False):
+    """Count business days between two dates (excluding weekends and optionally Japanese holidays)."""
+    if start_date > end_date:
+        start_date, end_date = end_date, start_date
+    
+    business_days = 0
+    current_date = start_date
+    
+    while current_date <= end_date:
+        if current_date.weekday() < 5:  # Monday=0, Sunday=6
+            if include_holidays or not is_japanese_holiday(current_date):
+                business_days += 1
+        current_date += timedelta(days=1)
+    
+    return business_days
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Count business days between two dates',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Examples:
+  eigyobi 2024-01-01 2024-01-31
+  eigyobi 2024-12-25 2024-01-01  # Order doesn't matter
+  eigyobi --exclude-holidays 2024-05-01 2024-05-10  # Exclude Japanese holidays
+        """
+    )
+    
+    parser.add_argument('start_date', help='Start date in YYYY-MM-DD format')
+    parser.add_argument('end_date', help='End date in YYYY-MM-DD format')
+    parser.add_argument('--exclude-holidays', action='store_true', 
+                       help='Exclude Japanese national holidays from business day count')
+    
+    args = parser.parse_args()
+    
+    try:
+        start = parse_date(args.start_date)
+        end = parse_date(args.end_date)
+        
+        business_days = count_business_days(start, end, include_holidays=not args.exclude_holidays)
+        print(business_days)
+        
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == '__main__':
+    main()
